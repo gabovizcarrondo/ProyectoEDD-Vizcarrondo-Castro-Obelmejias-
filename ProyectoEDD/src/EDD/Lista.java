@@ -78,25 +78,29 @@ public class Lista {
                     size--;
                 }
             } else {
-                Nodo aux = this.pFirst;
-                int count = 0;
-                while (aux != null) {
-                    if (aux.getpNext() != null) {
+                if (this.pFirst.getDato() == ref) {
+                    this.setpFirst(this.pFirst.getpNext());
+                    size--;
+                } else {
+                    Nodo aux = this.pFirst;
+                    int count = 0;
+                    while (aux.getpNext() != null) {
                         if (aux.getpNext().getDato() == ref) {
                             count++;
                             break;
                         }
                         aux = aux.getpNext();
-                    }
-                    if (count != 0) {
-                        Nodo siguiente = aux.getpNext().getpNext();
-                        aux.getpNext().setpNext(null);
-                        aux.setpNext(siguiente);
-                        size--;
-                    }else{
-                        if (aux.getDato() == ref){
-                            this.deleteFinale();
-                            size --;
+
+                        if (count != 0) {
+                            Nodo siguiente = aux.getpNext().getpNext();
+                            aux.getpNext().setpNext(null);
+                            aux.setpNext(siguiente);
+                            size--;
+                        } else {
+                            if (aux.getDato() == ref) {
+                                this.deleteFinale();
+                                size--;
+                            }
                         }
                     }
 
@@ -105,7 +109,6 @@ public class Lista {
             }
         }
     }
-    
 
     public boolean search(Object dato) {
         if (!this.isEmpty()) {

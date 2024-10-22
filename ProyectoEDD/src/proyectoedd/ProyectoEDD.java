@@ -25,7 +25,7 @@ public class ProyectoEDD {
         
         lista.print();
         
-        lista.deleteForReference(3);
+        lista.deleteForReference(4);
         
         lista.print();
     }
