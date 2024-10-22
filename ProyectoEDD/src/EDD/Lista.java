@@ -92,6 +92,12 @@ public class Lista {
                         Nodo siguiente = aux.getpNext().getpNext();
                         aux.getpNext().setpNext(null);
                         aux.setpNext(siguiente);
+                        size--;
+                    }else{
+                        if (aux.getDato() == ref){
+                            this.deleteFinale();
+                            size --;
+                        }
                     }
 
                 }
