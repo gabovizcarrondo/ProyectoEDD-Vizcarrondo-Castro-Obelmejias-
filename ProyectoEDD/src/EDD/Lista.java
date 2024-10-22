@@ -90,17 +90,16 @@ public class Lista {
                             break;
                         }
                         aux = aux.getpNext();
-
-                        if (count != 0) {
-                            Nodo siguiente = aux.getpNext().getpNext();
-                            aux.getpNext().setpNext(null);
-                            aux.setpNext(siguiente);
+                    }
+                    if (count != 0) {
+                        Nodo siguiente = aux.getpNext().getpNext();
+                        aux.getpNext().setpNext(null);
+                        aux.setpNext(siguiente);
+                        size--;
+                    } else {
+                        if (aux.getDato() == ref) {
+                            this.deleteFinale();
                             size--;
-                        } else {
-                            if (aux.getDato() == ref) {
-                                this.deleteFinale();
-                                size--;
-                            }
                         }
                     }
 
