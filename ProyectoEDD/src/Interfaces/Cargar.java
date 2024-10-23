@@ -29,16 +29,99 @@ public class Cargar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        cargarTitulo = new javax.swing.JLabel();
+        cargarCargarRed = new javax.swing.JToggleButton();
+        cargarBuscarArchivo = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        archivo = new javax.swing.JTextArea();
+        ruta = new javax.swing.JTextField();
+        inicioExit = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 390));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cargarTitulo.setFont(new java.awt.Font("Palatino", 0, 36)); // NOI18N
+        cargarTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        cargarTitulo.setText("Cargar red de transporte");
+        jPanel3.add(cargarTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        cargarCargarRed.setBackground(new java.awt.Color(204, 204, 255));
+        cargarCargarRed.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cargarCargarRed.setText("Cargar red");
+        cargarCargarRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargarCargarRedActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cargarCargarRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 300, -1));
+
+        cargarBuscarArchivo.setBackground(new java.awt.Color(204, 204, 255));
+        cargarBuscarArchivo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cargarBuscarArchivo.setText("Buscar archivo");
+        cargarBuscarArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargarBuscarArchivoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cargarBuscarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+
+        archivo.setBackground(new java.awt.Color(204, 204, 255));
+        archivo.setColumns(20);
+        archivo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        archivo.setForeground(new java.awt.Color(255, 255, 255));
+        archivo.setRows(5);
+        jScrollPane1.setViewportView(archivo);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 300, 120));
+
+        ruta.setBackground(new java.awt.Color(204, 204, 255));
+        ruta.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        ruta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rutaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(ruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 300, -1));
+
+        inicioExit.setBackground(new java.awt.Color(204, 204, 255));
+        inicioExit.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        inicioExit.setText("X");
+        inicioExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicioExitActionPerformed(evt);
+            }
+        });
+        jPanel3.add(inicioExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 10, 50, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cargarCargarRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCargarRedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargarCargarRedActionPerformed
+
+    private void rutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rutaActionPerformed
+
+    private void cargarBuscarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarBuscarArchivoActionPerformed
+        
+    }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
+
+    private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicioExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +159,14 @@ public class Cargar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextArea archivo;
+    private javax.swing.JToggleButton cargarBuscarArchivo;
+    private javax.swing.JToggleButton cargarCargarRed;
+    private javax.swing.JLabel cargarTitulo;
+    private javax.swing.JToggleButton inicioExit;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField ruta;
     // End of variables declaration//GEN-END:variables
 }
