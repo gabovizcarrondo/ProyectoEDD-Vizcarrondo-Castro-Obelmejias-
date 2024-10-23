@@ -35,7 +35,7 @@ public class Grafo {
             Nodo aux = this.estaciones.getpFirst();
             while(aux != null){
                 Estacion estacionActual = (Estacion) aux.getDato();
-                if(estacionActual.getNombre().equalsignoreCase(nombreEstacion)){
+                if(estacionActual.getNombre().equalsIgnoreCase(nombreEstacion)){
                   return estacionActual;
                         
                 }

@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package proyectoedd;
+package Main;
 
 import EDD.Lista;
+import Interfaces.Inicio;
 
 /**
  *
  * @author vizca
  */
-public class ProyectoEDD {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -28,6 +29,8 @@ public class ProyectoEDD {
         //lista.deleteForReference(3);
         
         //lista.print();
+        
+       Inicio inicio = new Inicio();
     }
     
 }
