@@ -46,8 +46,8 @@ public class Inicio extends javax.swing.JFrame {
         inicioBienvenidos.setText("BIENVENIDOS");
         jPanel1.add(inicioBienvenidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
-        inicioIniciarSistema.setBackground(new java.awt.Color(0, 102, 204));
-        inicioIniciarSistema.setForeground(new java.awt.Color(255, 255, 255));
+        inicioIniciarSistema.setBackground(new java.awt.Color(204, 204, 255));
+        inicioIniciarSistema.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         inicioIniciarSistema.setText("Iniciar sistema");
         inicioIniciarSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,12 +56,13 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(inicioIniciarSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
+        inicioIntegrantes.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         inicioIntegrantes.setForeground(new java.awt.Color(255, 255, 255));
         inicioIntegrantes.setText("Integrantes: Samantha Castro, Fabiana Obelmejías, Gabriel Vizcarrondo");
         jPanel1.add(inicioIntegrantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
-        inicioExit.setBackground(new java.awt.Color(0, 102, 204));
-        inicioExit.setForeground(new java.awt.Color(255, 255, 255));
+        inicioExit.setBackground(new java.awt.Color(204, 204, 255));
+        inicioExit.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         inicioExit.setText("X");
         inicioExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
