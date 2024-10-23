@@ -38,23 +38,30 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inicioBienvenidos.setFont(new java.awt.Font("Palatino", 1, 48)); // NOI18N
+        inicioBienvenidos.setForeground(new java.awt.Color(255, 255, 255));
         inicioBienvenidos.setText("BIENVENIDOS");
-        jPanel1.add(inicioBienvenidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        jPanel1.add(inicioBienvenidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
+        inicioIniciarSistema.setBackground(new java.awt.Color(0, 102, 204));
+        inicioIniciarSistema.setForeground(new java.awt.Color(255, 255, 255));
         inicioIniciarSistema.setText("Iniciar sistema");
         inicioIniciarSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioIniciarSistemaActionPerformed(evt);
             }
         });
-        jPanel1.add(inicioIniciarSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+        jPanel1.add(inicioIniciarSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
+        inicioIntegrantes.setForeground(new java.awt.Color(255, 255, 255));
         inicioIntegrantes.setText("Integrantes: Samantha Castro, Fabiana Obelmejías, Gabriel Vizcarrondo");
         jPanel1.add(inicioIntegrantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
+        inicioExit.setBackground(new java.awt.Color(0, 102, 204));
+        inicioExit.setForeground(new java.awt.Color(255, 255, 255));
         inicioExit.setText("X");
         inicioExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
