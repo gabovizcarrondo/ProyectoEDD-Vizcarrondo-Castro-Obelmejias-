@@ -5,6 +5,7 @@
 package proyectoedd;
 
 import EDD.Lista;
+import Interfaces.Inicio;
 
 /**
  *
@@ -28,6 +29,8 @@ public class ProyectoEDD {
         //lista.deleteForReference(3);
         
         //lista.print();
+        
+       Inicio inicio = new Inicio();
     }
     
 }
