@@ -144,5 +144,20 @@ public class Lista {
             JOptionPane.showMessageDialog(null, "la lista esta vacia");
         }
     }
-
+    public Object getValor(int posicion){
+        
+        if(posicion  >= 0 && posicion < size){
+            
+            if(posicion == 0){
+                return this.pFirst.getDato();
+            }else{
+                Nodo aux = this.pFirst;
+                for(int i = 0; i < posicion; i++){
+                    aux = aux.getpNext();
+                }
+                return aux.getDato();
+            }
+        }
+        return null;
+    }
 }
