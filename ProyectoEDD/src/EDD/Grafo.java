@@ -143,10 +143,15 @@ public class Grafo {
         String estacionesStr = "";
         Nodo aux = this.estaciones.getpFirst();
         while(aux.getpNext() != null){
-            estacionesStr += aux.getDato().toString() + "\n"; 
+            Estacion estacionActual = (Estacion)aux.getDato();
+            estacionesStr += estacionActual.getNombre() + " ---> " + estacionActual.printAdy() + "\n"; 
+            aux = aux.getpNext();
         }
-        estacionesStr += aux.getDato().toString() + "\n"; 
+         Estacion estacionActual = (Estacion) aux.getDato();
+            estacionesStr += estacionActual.getNombre() + " ---> " + estacionActual.printAdy();
+
         return estacionesStr;
+        
         }else{
             return "Grafo vacio";
         }
