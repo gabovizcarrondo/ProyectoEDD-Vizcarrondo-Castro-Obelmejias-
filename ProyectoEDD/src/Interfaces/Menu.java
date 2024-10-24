@@ -41,10 +41,10 @@ public class Menu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        imagenT = new javax.swing.JLabel();
+        imagenLinea = new javax.swing.JLabel();
+        imagenGrafo = new javax.swing.JLabel();
+        imagenRecorrido = new javax.swing.JLabel();
 
         inicioExit.setBackground(new java.awt.Color(204, 204, 255));
         inicioExit.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -101,6 +101,11 @@ public class Menu extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(204, 204, 255));
         jButton3.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         jButton3.setText("Establecer T");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 255));
@@ -128,17 +133,17 @@ public class Menu extends javax.swing.JFrame {
         jButton6.setText("Mostrar grafo");
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/t2.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        imagenT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/t2.png"))); // NOI18N
+        jPanel1.add(imagenT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/linea (1).png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
+        imagenLinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/linea (1).png"))); // NOI18N
+        jPanel1.add(imagenLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/grafooo.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        imagenGrafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/grafooo.png"))); // NOI18N
+        jPanel1.add(imagenGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/recorrido.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        imagenRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/recorrido.png"))); // NOI18N
+        jPanel1.add(imagenRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
@@ -164,6 +169,11 @@ public class Menu extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       EstablecerT establecerT = new EstablecerT ();
+       this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +211,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imagenGrafo;
+    private javax.swing.JLabel imagenLinea;
+    private javax.swing.JLabel imagenRecorrido;
     private javax.swing.JLabel imagenSucursal;
+    private javax.swing.JLabel imagenT;
     private javax.swing.JLabel imagenUpload;
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
@@ -212,10 +226,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

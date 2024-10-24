@@ -10,6 +10,7 @@ package Interfaces;
  */
 public class Cargar extends javax.swing.JFrame {
 
+    public static int valorT;
     /**
      * Creates new form Cargar
      */
