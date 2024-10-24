@@ -16,6 +16,8 @@ public class Validacion {
         if(validarnumeros(numero)== true){
             int num = Integer.parseInt(numero);
             return num;
+        }else{
+            return -1;
         }
     }
 }
