@@ -60,12 +60,20 @@ public class Grafo {
     
     public void addConnection(String nombreEstacion1, String nombreEstacion2){
         if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
-        
+            Estacion estacionInicio = search(nombreEstacion1);
+            Estacion estacionFinal = search(nombreEstacion2);
+            
+            estacionInicio.getAdyacentes().insertFinale(estacionFinal);
+            estacionFinal.getAdyacentes().insertFinale(estacionInicio);
+            
+            JOptionPane.showMessageDialog(null, "Conexion agregada con exito.");
     }else{
             if(this.search(nombreEstacion1) == null && this.search(nombreEstacion2) != null){
                 JOptionPane.showMessageDialog(null, "La estacion de inicio no existe.");
             }else if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) == null){
                 JOptionPane.showMessageDialog(null, "La estacion de llegada no existe.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Ninguna de las estaciones existe.");
             }
         
     }
