@@ -5,7 +5,9 @@
 package Interfaces;
 
 
-//arreglar porq no esta funcionando
+
+import EDD.Grafo;
+import Funciones.FuncionCargar;
 import Interfaces.Menu;
 import java.io.File;
 import java.io.FileReader;
@@ -20,6 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Cargar extends javax.swing.JFrame {
 
+    public static Grafo redApp = new Grafo();
     public static int valorT;
     /**
      * Creates new form Cargar
@@ -118,7 +121,20 @@ public class Cargar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarCargarRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCargarRedActionPerformed
-        Menu menu = new Menu();
+        if (!archivo.getText().isEmpty()) {
+            FuncionCargar func = new FuncionCargar();
+            func.cargar(ruta.getText());
+            
+            redApp.setEstaciones(func.getEstaciones());
+        
+            //pedirle a fabi q haga el tostring
+            //System.out.println(redApp.toString());
+        
+            Menu menu = new Menu();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo");  
+        }
         
     }//GEN-LAST:event_cargarCargarRedActionPerformed
 
