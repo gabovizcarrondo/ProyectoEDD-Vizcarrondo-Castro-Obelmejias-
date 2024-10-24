@@ -139,7 +139,10 @@ public class Grafo {
 
     @Override
     public String toString() {
-        return estaciones;
+        if(!this.isEmpty()){
+        String estacionesStr = "";
+        Nodo aux = this.estaciones.getpFirst();
+        return estacionesStr;
     }
     
     
