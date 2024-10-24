@@ -63,6 +63,24 @@ public class Estacion {
         this.sucursal = sucursal;
     }
     
+    public String printAdy(){
+        if(!this.adyacentes.isEmpty()){
+            Nodo aux = this.adyacentes.getpFirst();
+            String adyacentesStr = ""; 
+            while (aux.getpNext() != null){
+                Estacion estacionActual = (Estacion) aux.getDato();
+                adyacentesStr += estacionActual.getNombre() + "--->";
+                aux = aux.getpNext();
+            }
+            adyacentesStr += aux.getDato();
+            return adyacentesStr;
+            
+        }
+        
+        return "No tiene adyacentes.";
+        
+    
+    
     
     
     
