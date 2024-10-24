@@ -102,3 +102,13 @@ public class Grafo {
             }
     }
 }
+    public void getadjacent(String nombreEstacion){
+        if(this.search(nombreEstacion) != null){ 
+           Estacion estacion = this.search(nombreEstacion);
+            JOptionPane.showMessageDialog(null,estacion.printAdy());
+        }else{
+            JOptionPane.showMessageDialog(null, "La estacion ya existe.");
+        }
+    }
+    
+
