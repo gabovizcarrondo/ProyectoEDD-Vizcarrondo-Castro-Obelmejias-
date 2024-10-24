@@ -4,6 +4,16 @@
  */
 package Interfaces;
 
+
+//arreglar porq no esta funcionando
+import Interfaces.Menu;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author samantha
@@ -110,6 +120,7 @@ public class Cargar extends javax.swing.JFrame {
 
     private void cargarCargarRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCargarRedActionPerformed
         Menu menu = new Menu();
+        
     }//GEN-LAST:event_cargarCargarRedActionPerformed
 
     private void rutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaActionPerformed
@@ -117,14 +128,44 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_rutaActionPerformed
 
     private void cargarBuscarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarBuscarArchivoActionPerformed
+        JFileChooser fc = new JFileChooser();
         
-    }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
+        //para filtrar archivo json :)
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)","(json)");
+        
+        //asigno el filtro
+        fc.setFileFilter(filtro);
+        
+        //se abre la ventana y guarda la opcion seleccionada
+        int seleccion = fc.showOpenDialog(this);
+        
+        //si el usuario acepta
+        if(seleccion == JFileChooser.APPROVE_OPTION){
+            
+            //para seleccionar el fichero
+            File fichero = fc.getSelectedFile();
+            
+            ruta.setText(fichero.getAbsolutePath());
+            try (FileReader fr = new FileReader(fichero)) {
+                StringBuilder cadena = new StringBuilder();
+                int valor = fr.read(); 
+                
+                while (valor!= -1){
+                    cadena.append((char)valor);
+                    valor = fr.read();
+                }
+                
+                archivo.setText(cadena.toString());
+            } catch(IOException e1){
+                   e1.printStackTrace();
+            }
+            
+            }else {
+                JOptionPane.showMessageDialog(this, "No se ha seleccionado ningún archivo");
+            }
+        }
 
-    private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inicioExitActionPerformed
-
-    /**
+/**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -157,7 +198,14 @@ public class Cargar extends javax.swing.JFrame {
                 new Cargar().setVisible(true);
             }
         });
-    }
+    
+    }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
+
+    private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicioExitActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea archivo;
