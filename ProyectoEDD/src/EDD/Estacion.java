@@ -78,7 +78,15 @@ public class Estacion {
         }
         
         return "No tiene adyacentes.";
-        
+    }
+
+
+    @Override
+    public String toString() {
+        return "Estacion{" + "numVertice=" + numVertice + ", nombre=" + nombre + ", adyacentes=" + adyacentes + ", pasoPeatonal=" + pasoPeatonal + ", sucursal=" + sucursal + '}';
+    }
+            
+            
     
     
     
