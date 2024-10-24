@@ -37,7 +37,7 @@ public class Menu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         imagenUpload = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        establecerT = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -98,15 +98,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton3.setText("Establecer T");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        establecerT.setBackground(new java.awt.Color(204, 204, 255));
+        establecerT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        establecerT.setText("Establecer T");
+        establecerT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                establecerTActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
+        jPanel1.add(establecerT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 255));
         jButton4.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -170,10 +170,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void establecerTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_establecerTActionPerformed
        EstablecerT establecerT = new EstablecerT ();
        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_establecerTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +211,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton establecerT;
     private javax.swing.JLabel imagenGrafo;
     private javax.swing.JLabel imagenLinea;
     private javax.swing.JLabel imagenRecorrido;
@@ -221,7 +222,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

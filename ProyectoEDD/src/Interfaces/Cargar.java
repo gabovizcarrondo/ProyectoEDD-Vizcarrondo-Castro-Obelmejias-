@@ -127,9 +127,11 @@ public class Cargar extends javax.swing.JFrame {
             
             redApp.setEstaciones(func.getEstaciones());
         
-            System.out.println(redApp.toString());
+            //print para ver si esta funcionando esta funcion
+            //System.out.println(redApp.toString());
         
-            Menu menu = new Menu();
+            InicializarT inicializarT = new InicializarT();
+            this.dispose();
             
         }else{
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo");  

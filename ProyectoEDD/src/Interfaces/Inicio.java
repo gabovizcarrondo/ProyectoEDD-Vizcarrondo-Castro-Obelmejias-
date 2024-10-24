@@ -78,6 +78,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void inicioIniciarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioIniciarSistemaActionPerformed
         Cargar cargar = new Cargar();
+        this.dispose();
     }//GEN-LAST:event_inicioIniciarSistemaActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed

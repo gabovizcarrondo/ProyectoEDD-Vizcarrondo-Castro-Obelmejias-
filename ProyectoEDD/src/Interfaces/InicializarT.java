@@ -4,6 +4,12 @@
  */
 package Interfaces;
 
+import Funciones.Validacion;
+import static Interfaces.Cargar.valorT;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author samantha
@@ -96,10 +102,19 @@ public class InicializarT extends javax.swing.JFrame {
 
     private void inicializarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicializarActionPerformed
         String valorTStr = inputT.getText();
-        //castear --> hacer validacion --> decirle a gabo
-        //valorT
+        Validacion help = new Validacion();
+        
+        //si pasa la validacion
+        if (help.convertirNumero(valorTStr)!= -1){
+            valorT = help.convertirNumero(valorTStr);
+            JOptionPane.showMessageDialog(null, "Se agregó el valor a T"); 
+            Menu menu = new Menu();
+            this.dispose();
+      
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
     }//GEN-LAST:event_inicializarActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
