@@ -10,6 +10,7 @@ package Interfaces;
  */
 public class Cargar extends javax.swing.JFrame {
 
+    public static int valorT;
     /**
      * Creates new form Cargar
      */
@@ -108,7 +109,7 @@ public class Cargar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarCargarRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCargarRedActionPerformed
-        // TODO add your handling code here:
+        Menu menu = new Menu();
     }//GEN-LAST:event_cargarCargarRedActionPerformed
 
     private void rutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaActionPerformed
