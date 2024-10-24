@@ -83,12 +83,14 @@ public class Estacion {
     public String nombrePasoPeatonal(){
         if(this.pasoPeatonal != null){
             return pasoPeatonal.getNombre();
+        }else{
+            return "No hay paso peatonal";
         }
     }
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "\nNumero de Vertice: " + numVertice + "\nAdyacentes: " + numVertice + this.printAdy() + "\nPasoPeatonal: " + this.pasoPeatonal() + "\nSucursal: " + sucursal + "\n";
+        return "Nombre: " + nombre + "\nNumero de Vertice: " + numVertice + "\nAdyacentes: " + numVertice + this.printAdy() + "\nPasoPeatonal: " + this.nombrePasoPeatonal() + "\nSucursal: " + sucursal + "\n";
     }
             
             
