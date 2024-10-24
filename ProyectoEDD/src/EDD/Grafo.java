@@ -64,7 +64,7 @@ public class Grafo {
     }else{
             if(this.search(nombreEstacion1) == null && this.search(nombreEstacion2) != null){
                 JOptionPane.showMessageDialog(null, "La estacion de inicio no existe.");
-            }else if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
+            }else if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) == null){
                 JOptionPane.showMessageDialog(null, "La estacion de llegada no existe.");
             }
         
