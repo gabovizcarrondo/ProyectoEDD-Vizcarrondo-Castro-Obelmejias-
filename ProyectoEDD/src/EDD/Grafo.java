@@ -142,7 +142,10 @@ public class Grafo {
         if(!this.isEmpty()){
         String estacionesStr = "";
         Nodo aux = this.estaciones.getpFirst();
-        
+        while(aux.getpNext() != null){
+            estacionesStr += aux.getDato().toString() + "\n"; 
+        }
+        estacionesStr += aux.getDato().toString() + "\n"; 
         return estacionesStr;
         }else{
             return "Grafo vacio";
