@@ -156,7 +156,12 @@ public class Grafo {
             return "Grafo vacio";
         }
     }
-    
+    public void busquedaBFS(Estacion estacionInicial, int t) {
+        if (estacionInicial == null) {
+            JOptionPane.showMessageDialog(null, "La estación inicial no puede ser nula.");
+        }
+        
+        
     
 }
 
