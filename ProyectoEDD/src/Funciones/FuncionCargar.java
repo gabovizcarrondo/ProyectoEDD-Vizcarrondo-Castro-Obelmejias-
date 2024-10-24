@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Funciones;
-
-import EDD.Lista;
 import EDD.Estacion;
 import EDD.Lista;
 import com.google.gson.Gson;
@@ -76,5 +74,66 @@ public class FuncionCargar {
         }
         return listaClaves;
     }
+// Método auxiliar para procesar las líneas y estaciones
+    private void procesarEstaciones(JsonObject lineasObject) {
+        // Obtener las claves de las líneas
+        Lista nombresLineas = obtenerClavesDeJsonObject(lineasObject);
+
+        for (int i = 0; i < nombresLineas.getSize(); i++) {
+            String nombreLinea = (String) nombresLineas.getValor(i);
+            JsonArray estacionesArray = lineasObject.getAsJsonArray(nombreLinea);
+
+            Estacion estacionAnterior = null;  // Para enlazar adyacencias entre estaciones consecutivas
+            Estacion estacionActual;
+
+            // Procesar cada estación de la línea
+            for (JsonElement estacionElement : estacionesArray) {
+                if (estacionElement.isJsonPrimitive()) {
+                    // Caso de una estación sin conexión peatonal
+                    String nombreEstacion = estacionElement.getAsString();
+                    estacionActual = obtenerEstacion(nombreEstacion);
+
+                    // Si hay una estación anterior, hacerlas adyacentes
+                    if (estacionAnterior != null) {
+                        estacionAnterior.getAdyacentes().insertFinale(estacionActual);
+                        estacionActual.getAdyacentes().insertFinale(estacionAnterior);
+                    }
+
+                    // La estación actual se convierte en la anterior para el próximo ciclo
+                    estacionAnterior = estacionActual;
+
+                } else if (estacionElement.isJsonObject()) {
+                    
+                    JsonObject conexionPeatonal = estacionElement.getAsJsonObject();
+
+                    
+                    String estacion1 = conexionPeatonal.keySet().iterator().next(); // Obtener la clave
+                    String estacion2 = conexionPeatonal.get(estacion1).getAsString(); // Obtener el valor
+
+                    // Obtener o crear las estaciones
+                    Estacion est1 = obtenerEstacion(estacion1);
+                    Estacion est2 = obtenerEstacion(estacion2);
+
+                    // Añadirlas como paso peatonal (conexión en ambos sentidos)
+                    est1.setPasoPeatonal(est2); // Añadir conexión peatonal
+                    est2.setPasoPeatonal(est1); // Conexión en ambos sentidos
+
+                    
+                    // Establecer también la adyacencia lógica entre las estaciones de la misma línea
+                    if (estacionAnterior != null) {
+                        estacionAnterior.getAdyacentes().insertFinale(est1); // Enlazar adyacencia entre estaciones de la línea
+                        est1.getAdyacentes().insertFinale(estacionAnterior); // Enlazar en ambos sentidos
+                    }
+
+                    estacionAnterior = est1; // La estación siguiente se convierte en la anterior
+                }
+
+            }
+        }
+    }
+
+    // Falta crear método auxiliar para obtener una estación existente o crear una nueva
+   
+
 
 }
