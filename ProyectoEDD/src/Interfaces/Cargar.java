@@ -127,8 +127,7 @@ public class Cargar extends javax.swing.JFrame {
             
             redApp.setEstaciones(func.getEstaciones());
         
-            //pedirle a fabi q haga el tostring
-            //System.out.println(redApp.toString());
+            System.out.println(redApp.toString());
         
             Menu menu = new Menu();
             
