@@ -86,7 +86,6 @@ public class Cargar extends javax.swing.JFrame {
         archivo.setBackground(new java.awt.Color(204, 204, 255));
         archivo.setColumns(20);
         archivo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        archivo.setForeground(new java.awt.Color(255, 255, 255));
         archivo.setRows(5);
         jScrollPane1.setViewportView(archivo);
 
@@ -131,7 +130,7 @@ public class Cargar extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         
         //para filtrar archivo json :)
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)","(json)");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)","json");
         
         //asigno el filtro
         fc.setFileFilter(filtro);
@@ -145,17 +144,21 @@ public class Cargar extends javax.swing.JFrame {
             //para seleccionar el fichero
             File fichero = fc.getSelectedFile();
             
+            //lo pasa a un JTextField
             ruta.setText(fichero.getAbsolutePath());
             try (FileReader fr = new FileReader(fichero)) {
                 StringBuilder cadena = new StringBuilder();
                 int valor = fr.read(); 
                 
+                //leer contenido del json
                 while (valor!= -1){
                     cadena.append((char)valor);
                     valor = fr.read();
                 }
                 
+                //Mostrar el archivo en el JTextArea
                 archivo.setText(cadena.toString());
+                
             } catch(IOException e1){
                    e1.printStackTrace();
             }
