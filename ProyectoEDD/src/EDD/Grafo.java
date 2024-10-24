@@ -4,6 +4,7 @@
  */
 package EDD;
 
+import EDD.Estacion;
 import javax.swing.JOptionPane;
 
 /**
@@ -111,4 +112,30 @@ public class Grafo {
         }
     }
     
+    public boolean connected(String nombreEstacion1, String nombreEstacion2){
+        if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
+            Estacion estacionInicio = search(nombreEstacion1);
+            Estacion estacionFinal = search(nombreEstacion2);
+            
+            if(estacionInicio.getAdyacentes().search(estacionFinal)){
+                JOptionPane.showMessageDialog(null, "Si estan conectadas.");
+                return true;
+            }else{ 
+                JOptionPane.showMessageDialog(null, "No son adyacentes.");
+                return false;
+            }
+      
+    }else{
+            if(this.search(nombreEstacion1) == null && this.search(nombreEstacion2) != null){
+                JOptionPane.showMessageDialog(null, "La estacion de inicio no existe.");
+            }else if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) == null){
+                JOptionPane.showMessageDialog(null, "La estacion de llegada no existe.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Ninguna de las estaciones existe.");
+            }
+            return false;
+}
+    }
+}
+
 
