@@ -193,7 +193,7 @@ public class Grafo {
             
              // Revisar las estaciones adyacentes
             Lista adyacentesActual = estacionActual.getAdyacentes();
-            for (int i >= 0; i < adyacentesActual.getSize(); i++) {
+            for (int i = 0; i < adyacentesActual.getSize(); i++) {
                 Estacion adyacenteActual = (Estacion) adyacentesActual.getValor(i);
                 if (!estacionesVisitadas.search(adyacenteActual)) {
                     cola.insert(adyacenteActual);
@@ -202,6 +202,9 @@ public class Grafo {
                 }
         }
         }
+        JOptionPane.showMessageDialog(null, recorrido);
+    }
+
                     
                     
 }
