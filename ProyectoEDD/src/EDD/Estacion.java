@@ -64,15 +64,18 @@ public class Estacion {
     }
     
     public String printAdy(){
-        if(!this.adyacentes.isEmpty()){
+        if (!this.adyacentes.isEmpty()) {
             Nodo aux = this.adyacentes.getpFirst();
-            String adyacentesStr = ""; 
-            while (aux.getpNext() != null){
+            String adyacentesStr = "";
+            while (aux.getpNext() != null) {
                 Estacion estacionActual = (Estacion) aux.getDato();
-                adyacentesStr += estacionActual.getNombre() + "--->";
+                adyacentesStr += estacionActual.getNombre() + " ---> ";
+
                 aux = aux.getpNext();
+
             }
-            adyacentesStr += aux.getDato();
+            Estacion estacionActual = (Estacion) aux.getDato();
+            adyacentesStr += estacionActual.getNombre();
             return adyacentesStr;
             
         }
