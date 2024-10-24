@@ -47,9 +47,11 @@ public class Grafo {
         return null;
     }
     
-    public void insertStation(String nombreEstacion){
-        if(this.search(nombreEstacion) == null){
-            Estacion estacion = new Estacion(nombreEstacion);
+    public void insertStation(String nombreEstacion){ //cuando necesito agregar una estacion,agrego el nombre de la estacion
+        if(this.search(nombreEstacion) == null){ //la estacion puede llegar a existir o no, por eso debo hacer "search", para comprobar
+            Estacion estacion = new Estacion(nombreEstacion);//en caso de que la estacion no exista, agrego otra
+            estacion.setNumVertice(this.estaciones.getSize());
+            this.estaciones.insertFinale(estacion);
             
         }else{
             JOptionPane.showMessageDialog(null, "La estacion ya existe.");
