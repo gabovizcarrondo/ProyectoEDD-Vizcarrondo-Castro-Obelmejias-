@@ -66,16 +66,23 @@ public class Cola {
         }
     }
     
-    public void delete(){
+    public Object delete(){
         if(!this.isEmpty()){
             if(size == 1){
+                 Object eliminado = this.pFirst.getDato();
                 this.setpFirst(null);
                 this.setpLast(null);
+                size--;
+                return eliminado;
             }else{
-                this.setpFirst(this.pFirst.getpNext());
-            }
-            size--;
+                Object eliminado = this.pFirst.getDato();
+                this.setpFirts(this.pFirst.getpNext());
+                size--;
+                 return eliminado;
+
         }
+    }
+        return null; 
     }
         public void print(){
         if(!this.isEmpty()){
