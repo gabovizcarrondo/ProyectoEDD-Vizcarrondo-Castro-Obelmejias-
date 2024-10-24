@@ -86,14 +86,12 @@ public class Grafo {
             
             if(estacionInicio.getAdyacentes().search(estacionFinal)){
                 estacionInicio.getAdyacentes().deleteForReference(estacionFinal);
+                estacionFinal.getAdyacentes().deleteForReference(estacionInicio);
+                JOptionPane.showMessageDialog(null, "Conexion eliminar con exito.");
             }else{ 
                 JOptionPane.showMessageDialog(null, "No son adyacentes.");
             }
-            }
-            estacionInicio.getAdyacentes().insertFinale(estacionFinal);
-            estacionFinal.getAdyacentes().insertFinale(estacionInicio);
-            
-            JOptionPane.showMessageDialog(null, "Conexion agregada con exito.");
+      
     }else{
             if(this.search(nombreEstacion1) == null && this.search(nombreEstacion2) != null){
                 JOptionPane.showMessageDialog(null, "La estacion de inicio no existe.");
@@ -104,3 +102,13 @@ public class Grafo {
             }
     }
 }
+    public void getadjacent(String nombreEstacion){
+        if(this.search(nombreEstacion) != null){ 
+           Estacion estacion = this.search(nombreEstacion);
+            JOptionPane.showMessageDialog(null,estacion.printAdy());
+        }else{
+            JOptionPane.showMessageDialog(null, "La estacion ya existe.");
+        }
+    }
+    
+
