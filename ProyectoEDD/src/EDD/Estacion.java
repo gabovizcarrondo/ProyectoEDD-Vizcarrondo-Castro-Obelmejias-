@@ -80,10 +80,15 @@ public class Estacion {
         return "No tiene adyacentes.";
     }
 
+    public String nombrePasoPeatonal(){
+        if(this.pasoPeatonal != null){
+            return pasoPeatonal.getNombre();
+        }
+    }
 
     @Override
     public String toString() {
-        return "Estacion{" + "numVertice=" + numVertice + ", nombre=" + nombre + ", adyacentes=" + adyacentes + ", pasoPeatonal=" + pasoPeatonal + ", sucursal=" + sucursal + '}';
+        return "Nombre: " + nombre + "\nNumero de Vertice: " + numVertice + "\nAdyacentes: " + numVertice + this.printAdy() + "\nPasoPeatonal: " + this.pasoPeatonal() + "\nSucursal: " + sucursal + "\n";
     }
             
             
