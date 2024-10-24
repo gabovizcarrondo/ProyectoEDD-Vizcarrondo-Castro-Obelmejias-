@@ -161,6 +161,23 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, "La estación inicial no puede ser nula.");
         }
         
+        String recorrido = "Estación Inicial: " + estacionInicial.getNombre()+ "\n";
+        Cola cola = new Cola();
+        Cola distancias = new Cola();
+        Lista estacionesVisitadas = new Lista();
+        
+        cola.insert(estacionInicial);
+        distancias.insert(0);
+        estacionesVisitadas.insertFinale(estacionInicial);
+        
+        while (!cola.isEmpty()) {
+            Estacion estacionActual = (Estacion) cola.delete();
+            int distanciaActual = (int) distancias.delete();
+
+
+
+
+
         
     
 }
