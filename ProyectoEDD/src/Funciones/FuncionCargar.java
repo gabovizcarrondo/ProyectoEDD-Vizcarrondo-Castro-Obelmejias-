@@ -132,8 +132,20 @@ public class FuncionCargar {
         }
     }
 
-    // Falta crear método auxiliar para obtener una estación existente o crear una nueva
-   
+    // Método auxiliar para obtener una estación existente o crear una nueva
+   private Estacion obtenerEstacion(String nombreEstacion) {
+        // Buscar si la estación ya fue creada en la lista de estaciones
+        for (int i = 0; i < estaciones.getSize(); i++) {
+            Estacion estacion = (Estacion) estaciones.getValor(i);
+            if (estacion.getNombre().equals(nombreEstacion)) {
+                return estacion;
+            }
+        }
+        // Si no existe, la creamos y la añadimos a la lista de estaciones
+        Estacion nuevaEstacion = new Estacion(nombreEstacion);
+        estaciones.insertFinale(nuevaEstacion);
+        return nuevaEstacion;
+    }
 
 
 }
