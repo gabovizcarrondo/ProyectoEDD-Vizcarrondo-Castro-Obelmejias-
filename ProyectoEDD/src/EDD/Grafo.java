@@ -174,13 +174,30 @@ public class Grafo {
             Estacion estacionActual = (Estacion) cola.delete();
             int distanciaActual = (int) distancias.delete();
 
+            // Verificar si ya hemos alcanzado la distancia máxima
+            if (distanciaActual > t) {
+                continue;
+            }
 
+            recorrido += "Estación: " + estacionActual.getNombre() + ", Distancia: " + distanciaActual + "\n";
+
+            // Revisar las conexiones peatonales (t = 0)
+            if (estacionActual.getPasoPeatonal() != null) {
+                Estacion peatonal = estacionActual.getPasoPeatonal();
+                if (!estacionesVisitadas.search(peatonal)) {
+                    cola.insert(peatonal);
+                    distancias.insert(distanciaActual); // No incrementamos la distancia
+                    estacionesVisitadas.insertFinale(peatonal);
+                }
+            }
+            
 
 
 
         
     
 }
+ 
 
 
 
