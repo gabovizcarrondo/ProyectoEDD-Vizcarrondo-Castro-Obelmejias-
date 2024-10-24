@@ -76,7 +76,7 @@ public class Cola {
                 return eliminado;
             }else{
                 Object eliminado = this.pFirst.getDato();
-                this.setpFirts(this.pFirst.getpNext());
+                this.setpFirst(this.pFirst.getpNext());
                 size--;
                  return eliminado;
 
