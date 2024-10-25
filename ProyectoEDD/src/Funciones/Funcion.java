@@ -102,6 +102,9 @@ public class Funcion {
             conexion.destruir();
             conexion.insertFinale(nombreEstacionRed);
             conexion.insertFinale(nombreEstacionLinea);
+            
         }
+        
+        JOptionPane.showMessageDialog(null, "Se estableció la conexión con la red :)");
     }
 }
