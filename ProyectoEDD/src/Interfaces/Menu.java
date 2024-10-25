@@ -41,7 +41,7 @@ public class Menu extends javax.swing.JFrame {
         imagenUpload = new javax.swing.JLabel();
         cargar = new javax.swing.JButton();
         establecerT = new javax.swing.JButton();
-        recorridos = new javax.swing.JButton();
+        cobertura = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         imagenT = new javax.swing.JLabel();
@@ -116,15 +116,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(establecerT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        recorridos.setBackground(new java.awt.Color(204, 204, 255));
-        recorridos.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        recorridos.setText("Recorridos");
-        recorridos.addActionListener(new java.awt.event.ActionListener() {
+        cobertura.setBackground(new java.awt.Color(204, 204, 255));
+        cobertura.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cobertura.setText("Ver cobertura");
+        cobertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recorridosActionPerformed(evt);
+                coberturaActionPerformed(evt);
             }
         });
-        jPanel1.add(recorridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+        jPanel1.add(cobertura, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 255));
         jButton5.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(imagenGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
         imagenRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/recorrido.png"))); // NOI18N
-        jPanel1.add(imagenRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        jPanel1.add(imagenRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
@@ -172,9 +172,10 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cargarActionPerformed
 
-    private void recorridosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorridosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_recorridosActionPerformed
+    private void coberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturaActionPerformed
+        Cobertura cobertura = new Cobertura();
+        this.dispose();
+    }//GEN-LAST:event_coberturaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         AgregarLinea agregarLinea = new AgregarLinea();
@@ -232,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cargar;
+    private javax.swing.JButton cobertura;
     private javax.swing.JButton establecerT;
     private javax.swing.JLabel imagenGrafo;
     private javax.swing.JLabel imagenLinea;
@@ -245,7 +247,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton recorridos;
     private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }
