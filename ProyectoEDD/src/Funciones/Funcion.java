@@ -33,7 +33,7 @@ public class Funcion {
              Lista estacionesConSucursal = new Lista();
              for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
                  Estacion estacionActual =(Estacion) grafo.getEstaciones().getValor(i);
-                 if(!estacionActual.isSucursal()){
+                 if(estacionActual.isSucursal()){
                      estacionesConSucursal.insertFinale(estacionActual.getNombre());
                  }
              }

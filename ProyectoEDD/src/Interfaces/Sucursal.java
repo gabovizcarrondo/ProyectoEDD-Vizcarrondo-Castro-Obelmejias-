@@ -52,10 +52,9 @@ public class Sucursal extends javax.swing.JFrame {
     private void llenarComboBoxConSucursal() {
         modeloConSucursal.removeAllElements();
         //obtener lista de las estaciones sin sucursal
-        Lista nombresConSucursal = //func.estacionesConSucursal(redApp);
+        Lista nombresConSucursal = func.estacionesConSucursal(redApp);
         
-        //decirle a gabo que cree la funcion estacionesConSucursal
-
+        
         //si la lista no esta vacia
         if (!nombresConSucursal.isEmpty()) {
 
@@ -94,6 +93,7 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,7 +180,11 @@ public class Sucursal extends javax.swing.JFrame {
         jButton1.setText("Eliminar sucursal");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 150, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursalnuevo.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, 250, -1, 210));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 440));
         jPanel1.getAccessibleContext().setAccessibleName("");
 
         pack();
@@ -203,6 +207,7 @@ public class Sucursal extends javax.swing.JFrame {
         func.agregarSucursal(redApp, nombreEstacion);
         
         this.llenarComboBoxSinSucursal();
+        this.llenarComboBoxConSucursal();
     }//GEN-LAST:event_aggSucursalActionPerformed
 
     /**
@@ -253,6 +258,7 @@ public class Sucursal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
