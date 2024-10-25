@@ -222,7 +222,7 @@ public class Grafo {
                 }
             }
             //mostramos la cobertura de estaciones alcanzadas
-            JOptionPane.showMessageDialog(null, "cobertura");
+            JOptionPane.showMessageDialog(null, cobertura);
         }
     }
 }
