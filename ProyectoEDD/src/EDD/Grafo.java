@@ -225,5 +225,75 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, cobertura);
         }
     }
+    
+    //funcion para ver hasta donde se puede cubrir una sucursal
+    public void verificarCoberturaTotal(int rangoCobertura){
+        //si esta vacio, mostramos un mensaje y salimos del metodo
+        if(this.isEmpty()){
+            System.out.println("El grafo está vacío. No hay estaciones para revisar");
+            return;
+        }
+        //creamos dos listas, una para las estaciones cubiertas y otra para las NO cubiertas
+        Lista estacionesCubiertas = new Lista();
+        Lista estacionesNoCubiertas = new Lista();
+        
+        //obtenemos el primer nodo para comenzar el bucle que recorre todas las estaciones
+        Nodo aux= this.getEstaciones().getpFirst();
+        //en cada iteracion obtenemos la estacion actual
+        while (aux != null){
+            Estacion estacionActual = (Estacion) aux.getDato();
+            if (estacionActual.isSucursal()){
+                //si es una sucursal, llamamos al metodo marcarCoberturaDesdeSucursal para macar la cobertura
+                marcarCoberturaDesdeSucursal (estacionActual, estacionesCubiertas, rangoCobertura);
+            }
+            //avanzamos al siguiente nodo
+            aux = aux.getpNext();
+        }
+        //reiniciamos el nodo auxiliar para verificar las estaciones no cubiertas
+        aux = this.getEstaciones().getpFirst();
+        while (aux != null) {
+            Estacion estacionActual = (Estacion) aux.getDato();
+            
+            //si la estacion actual no esta en la lista de estaciones cubiertas, la agregamos la lista de estaciones NO cubiertas
+            if (!estacionesCubiertas.search(estacionActual)){
+                estacionesNoCubiertas.insertFinale(estacionActual);
+            }
+            
+            aux = aux.getpNext();
+        }
+        //si todas las estaciones estan cubiertas
+        if(estacionesNoCubiertas.getSize() == 0){
+            JOptionPane.showMessageDialog(null, "Cobertura total alcanzada. Todas las estaciones están cubiertas");
+        }else{
+            JOptionPane.showMessageDialog(null, "Cobertura NO total. Hay estaciones que no están cubiertas");
+            //hacer funcion sugerir nueva sucursal OJOOOOOOOOOOO
+        }
+    }
+    
+    public void marcarCoberturaDesdeSucursal (Estacion sucursal, Lista estacionesCubiertas,int rangoCobertura){
+        marcarCoberturaRecursiva (sucursal, estacionesCubiertas, 0, rangoCobertura);
+    }
+    
+    public void marcarCoberturaRecursiva(Estacion estacionActual, Lista estacionesCubiertas,int distancia, int rangoCobertura){
+        //verificamos si la distancia es mayor que el rango o si la estacion ya esta cubierta. Si es asi, nos salimos del metodo
+        if (distancia > rangoCobertura || estacionesCubiertas.search(estacionActual)){
+            return;
+        }
+        
+        estacionesCubiertas.insertFinale(estacionActual);
+        
+        //obtenemos las estaciones adyacentes y aplicamos la recursividad para cada una, asi se incrementa la distancia
+        Lista adyacentes = estacionActual.getAdyacentes();
+        for (int i = 0; i < adyacentes.getSize(); i++) {
+            Estacion adyacente = (Estacion) adyacentes.getValor(i);
+            marcarCoberturaRecursiva(adyacente, estacionesCubiertas, distancia + 1,rangoCobertura);
+            
+        }
+        //si la estacion tiene un paso peatonal, lo marcamos recursivamente 
+        if (estacionActual.getPasoPeatonal() != null){
+            Estacion peatonal = estacionActual.getPasoPeatonal();
+            marcarCoberturaRecursiva(peatonal, estacionesCubiertas, distancia, rangoCobertura);
+        }
+    }
 }
     
