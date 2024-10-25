@@ -92,4 +92,14 @@ public class Funcion {
         return "La lista aún no tiene estaciones";
         
     }
+    
+    
+    public void agregarConexion (String nombreEstacionLinea, String nombreEstacionRed,Lista conexion){
+        if (conexion.isEmpty()){
+            conexion.insertFinale(nombreEstacionRed);
+            conexion.insertFinale(nombreEstacionLinea);
+        }else{
+            
+        }
+    }
 }
