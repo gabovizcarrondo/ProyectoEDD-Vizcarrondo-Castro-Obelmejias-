@@ -27,6 +27,21 @@ public class Funcion {
         }
         return null;
     }
+    
+    public Lista estacionesConSucursal(Grafo grafo){
+         if(!grafo.isEmpty()){
+             Lista estacionesConSucursal = new Lista();
+             for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
+                 Estacion estacionActual =(Estacion) grafo.getEstaciones().getValor(i);
+                 if(!estacionActual.isSucursal()){
+                     estacionesConSucursal.insertFinale(estacionActual.getNombre());
+                 }
+             }
+             return estacionesConSucursal;
+         }
+         return null;
+    }
+    
     public void agregarSucursal(Grafo grafo, String nombreEstacion){
         if(grafo.search(nombreEstacion) != null){
             Estacion estacion = grafo.search(nombreEstacion);
