@@ -33,6 +33,17 @@ public class AgregarLinea extends javax.swing.JFrame {
         
         estacionesLinea.setText(func.mostrarEstaciones(linea));
     }
+    
+    private void llenarComboLinea(){
+        modeloLineaNueva.removeAllElements();
+        if(!linea.isEmpty()){
+            for (int i = 0; i < linea.getSize(); i++) {
+                Estacion estacion = (Estacion) linea.getValor(i);
+                modeloLineaNueva.addElement(estacion.getNombre());
+                
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
