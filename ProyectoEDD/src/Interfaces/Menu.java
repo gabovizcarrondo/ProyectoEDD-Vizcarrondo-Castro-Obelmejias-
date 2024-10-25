@@ -41,7 +41,7 @@ public class Menu extends javax.swing.JFrame {
         imagenUpload = new javax.swing.JLabel();
         cargar = new javax.swing.JButton();
         establecerT = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        recorridos = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         imagenT = new javax.swing.JLabel();
@@ -116,15 +116,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(establecerT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton4.setText("Recorridos");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        recorridos.setBackground(new java.awt.Color(204, 204, 255));
+        recorridos.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        recorridos.setText("Recorridos");
+        recorridos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                recorridosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+        jPanel1.add(recorridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 255));
         jButton5.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -172,9 +172,9 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cargarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void recorridosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorridosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_recorridosActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         AgregarLinea agregarLinea = new AgregarLinea();
@@ -241,11 +241,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel imagenUpload;
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton recorridos;
     private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }

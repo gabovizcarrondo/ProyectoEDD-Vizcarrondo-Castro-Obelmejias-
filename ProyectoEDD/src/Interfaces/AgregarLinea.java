@@ -237,7 +237,7 @@ public class AgregarLinea extends javax.swing.JFrame {
                 
                 String nombre1 = (String) conexion.getValor(0);
                 String nombre2 = (String) conexion.getValor(1);
-                redApp.connected(nombre1, nombre2);
+                redApp.addConnection(nombre1, nombre2);
                 
                 //para probar si funciona
                 System.out.println(redApp.toString());
