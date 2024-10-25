@@ -66,6 +66,8 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         estacionesSinSucursal = new javax.swing.JComboBox<>();
         volver = new javax.swing.JButton();
+        aggSucursal = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,12 +94,12 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selecciona la estación:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
 
         estacionesSinSucursal.setBackground(new java.awt.Color(204, 204, 255));
         estacionesSinSucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         estacionesSinSucursal.setModel(modeloSinSucursal);
-        jPanel1.add(estacionesSinSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 300, -1));
+        jPanel1.add(estacionesSinSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 300, -1));
 
         volver.setBackground(new java.awt.Color(204, 204, 255));
         volver.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -108,6 +110,19 @@ public class Sucursal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
+
+        aggSucursal.setBackground(new java.awt.Color(204, 204, 255));
+        aggSucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        aggSucursal.setText("Agregar sucursal");
+        aggSucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aggSucursalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(aggSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursalnuevo.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, 160, -1, 220));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -123,6 +138,16 @@ public class Sucursal extends javax.swing.JFrame {
         Menu menu = new Menu();
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void aggSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggSucursalActionPerformed
+        
+        //lo pasamos a string porque devuelve un tipo object
+        String nombreEstacion = (String)estacionesSinSucursal.getSelectedItem();
+        
+        func.agregarSucursal(redApp, nombreEstacion);
+        
+        this.llenarComboBoxSinSucursal();
+    }//GEN-LAST:event_aggSucursalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,10 +185,12 @@ public class Sucursal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aggSucursal;
     private javax.swing.JComboBox<String> estacionesSinSucursal;
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
