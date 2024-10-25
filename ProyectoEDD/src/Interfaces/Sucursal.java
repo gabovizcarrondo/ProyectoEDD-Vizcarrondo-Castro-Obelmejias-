@@ -4,6 +4,9 @@
  */
 package Interfaces;
 
+import EDD.Lista;
+import Funciones.Funcion;
+import static Interfaces.Cargar.redApp;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -13,6 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 public class Sucursal extends javax.swing.JFrame {
 
     DefaultComboBoxModel modeloSinSucursal = new DefaultComboBoxModel();
+    private Funcion func = new Funcion();
     
     public Sucursal() {
         initComponents();
@@ -20,9 +24,32 @@ public class Sucursal extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
-        modeloSinSucursal.removeAllElements();
-        
+        this.llenarComboBoxSinSucursal();
     }
+
+    private void llenarComboBoxSinSucursal() {
+        modeloSinSucursal.removeAllElements();
+        //obtener lista de las estaciones sin sucursal
+        Lista nombresSinSucursal = func.estacionesSinSucursal(redApp);
+    
+        //si la lista no esta vacia
+        if (!nombresSinSucursal.isEmpty()) {
+            
+            //para llenar el combo box 
+            for (int i = 0; i < nombresSinSucursal.getSize(); i++) {
+                
+                //casteo de lo que guarda cada uno de los nodos en esta lista en la posicion i
+                String nombreActual = (String) nombresSinSucursal.getValor(i);
+                
+                modeloSinSucursal.addElement(nombreActual);
+            }
+        } else {
+
+        }
+    }
+
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +65,7 @@ public class Sucursal extends javax.swing.JFrame {
         inicioExit1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         estacionesSinSucursal = new javax.swing.JComboBox<>();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,10 +92,22 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selecciona la estación:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
 
+        estacionesSinSucursal.setBackground(new java.awt.Color(204, 204, 255));
+        estacionesSinSucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         estacionesSinSucursal.setModel(modeloSinSucursal);
-        jPanel1.add(estacionesSinSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 300, -1));
+        jPanel1.add(estacionesSinSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 300, -1));
+
+        volver.setBackground(new java.awt.Color(204, 204, 255));
+        volver.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        volver.setText("<-- Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -78,6 +118,11 @@ public class Sucursal extends javax.swing.JFrame {
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
         dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        Menu menu = new Menu();
+        this.dispose();
+    }//GEN-LAST:event_volverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,5 +165,6 @@ public class Sucursal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }
