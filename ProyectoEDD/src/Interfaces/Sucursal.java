@@ -92,7 +92,7 @@ public class Sucursal extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        eliminarSucursal = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,10 +175,15 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel7.setText("Selecciona la estación:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton1.setText("Eliminar sucursal");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 150, -1));
+        eliminarSucursal.setBackground(new java.awt.Color(204, 204, 255));
+        eliminarSucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        eliminarSucursal.setText("Eliminar sucursal");
+        eliminarSucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarSucursalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(eliminarSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 150, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursalnuevo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -209,6 +214,10 @@ public class Sucursal extends javax.swing.JFrame {
         this.llenarComboBoxSinSucursal();
         this.llenarComboBoxConSucursal();
     }//GEN-LAST:event_aggSucursalActionPerformed
+
+    private void eliminarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarSucursalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarSucursalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,9 +256,9 @@ public class Sucursal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggSucursal;
+    private javax.swing.JButton eliminarSucursal;
     private javax.swing.JComboBox<String> estacionesSinSucursal;
     private javax.swing.JToggleButton inicioExit1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
