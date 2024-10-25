@@ -259,6 +259,10 @@ public class AgregarLinea extends javax.swing.JFrame {
         String nombreEstacionRed = (String)estacionRed.getSelectedItem();
         
         func.agregarConexion(nombreEstacionLinea, nombreEstacionRed, conexion);
+        
+        //para probar si esta funcionando
+        //si funcionaaaa :)
+        //conexion.print();
     }//GEN-LAST:event_conexionConRedActionPerformed
 
     /**
