@@ -4,6 +4,7 @@
  */
 package Interfaces;
 
+import EDD.Estacion;
 import EDD.Lista;
 import javax.swing.DefaultComboBoxModel;
 
@@ -95,6 +96,11 @@ public class AgregarLinea extends javax.swing.JFrame {
         aggEstacion.setBackground(new java.awt.Color(204, 204, 255));
         aggEstacion.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         aggEstacion.setText("Agregar estación");
+        aggEstacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aggEstacionActionPerformed(evt);
+            }
+        });
         jPanel1.add(aggEstacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 130, -1));
 
         estacionesLinea.setBackground(new java.awt.Color(204, 204, 255));
@@ -190,6 +196,18 @@ public class AgregarLinea extends javax.swing.JFrame {
     private void cargarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarLineaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cargarLineaActionPerformed
+
+    private void aggEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggEstacionActionPerformed
+        //si el input donde va a escribir el usuario no está vacío
+        if(!inputEstacion.getText().isEmpty()){
+            //agarro el texto que escribió el usuario
+            String nombre = inputEstacion.getText();
+            //creo un objeto estacion
+            Estacion estacion = new Estacion(nombre);
+            //inserto el objeto a la lista linea
+            linea.insertFinale(estacion);
+        }
+    }//GEN-LAST:event_aggEstacionActionPerformed
 
     /**
      * @param args the command line arguments
