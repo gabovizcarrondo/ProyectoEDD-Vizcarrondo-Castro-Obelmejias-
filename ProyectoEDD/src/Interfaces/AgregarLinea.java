@@ -233,11 +233,15 @@ public class AgregarLinea extends javax.swing.JFrame {
         if (!linea.isEmpty()){
             if (!conexion.isEmpty()){
                 func.agregarConexionesLinea(linea);
-                
-                //para probar si funciona
                 func.agregarLinea(redApp, linea);
                 
+                String nombre1 = (String) conexion.getValor(0);
+                String nombre2 = (String) conexion.getValor(1);
+                redApp.connected(nombre1, nombre2);
+                
+                //para probar si funciona
                 System.out.println(redApp.toString());
+                
 //                for (int i = 0; i < linea.getSize(); i++) {
 //                    Estacion estacion = (Estacion) linea.getValor(i);
 //                    
