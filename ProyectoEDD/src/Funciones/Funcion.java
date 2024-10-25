@@ -42,6 +42,20 @@ public class Funcion {
          return null;
     }
     
+    public Lista verEstaciones(Grafo grafo){
+         if(!grafo.isEmpty()){
+             Lista estaciones = new Lista();
+             for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
+                 Estacion estacionActual =(Estacion) grafo.getEstaciones().getValor(i);
+                 
+                     estaciones.insertFinale(estacionActual.getNombre());
+                 
+             }
+             return estaciones;
+         }
+         return null;
+    }
+    
     public void agregarSucursal(Grafo grafo, String nombreEstacion){
         if(grafo.search(nombreEstacion) != null){
             //guardar la estacion e igualarla a la busqueda
