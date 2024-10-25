@@ -4,6 +4,14 @@
  */
 package Interfaces;
 
+import EDD.Estacion;
+import EDD.Lista;
+import Funciones.Funcion;
+import static Interfaces.Cargar.redApp;
+import static Interfaces.Cargar.valorT;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author samantha
@@ -13,14 +21,41 @@ public class Cobertura extends javax.swing.JFrame {
     /**
      * Creates new form Recorrido
      */
+    private String nombreBusqueda = null;
+    DefaultComboBoxModel modeloEstacionesBusq = new DefaultComboBoxModel();
+    private Funcion func = new Funcion();
+    
     public Cobertura() {
         initComponents();
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        opcionesCobertura.add(opcionDFS);
+        opcionesCobertura.add(opcionBFS);
+        this.llenarComboBoxConSucursal();
         
     }
 
+     private void llenarComboBoxConSucursal() {
+        modeloEstacionesBusq.removeAllElements();
+        //obtener lista de las estaciones sin sucursal
+        Lista nombresConSucursal = func.estacionesConSucursal(redApp);
+        
+        
+        //si la lista no esta vacia
+        if (!nombresConSucursal.isEmpty()) {
+
+            //para llenar el combo box 
+            for (int i = 0; i < nombresConSucursal.getSize(); i++) {
+
+                //casteo de lo que guarda cada uno de los nodos en esta lista en la posicion i
+                String nombreActual = (String) nombresConSucursal.getValor(i);
+
+                modeloEstacionesBusq.addElement(nombreActual);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +66,7 @@ public class Cobertura extends javax.swing.JFrame {
     private void initComponents() {
 
         volver = new javax.swing.JButton();
+        opcionesCobertura = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         inicioExit1 = new javax.swing.JToggleButton();
@@ -82,7 +118,7 @@ public class Cobertura extends javax.swing.JFrame {
 
         estaciones.setBackground(new java.awt.Color(204, 204, 255));
         estaciones.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        estaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estaciones.setModel(modeloEstacionesBusq);
         jPanel1.add(estaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, -1));
 
         opcionDFS.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -169,15 +205,26 @@ public class Cobertura extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
     private void opcionBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionBFSActionPerformed
-        // TODO add your handling code here:
+        nombreBusqueda = "BFS";
     }//GEN-LAST:event_opcionBFSActionPerformed
 
     private void opcionDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionDFSActionPerformed
-        // TODO add your handling code here:
+        nombreBusqueda = "DFS";
     }//GEN-LAST:event_opcionDFSActionPerformed
 
     private void revisarCoberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revisarCoberturaActionPerformed
-        // TODO add your handling code here:
+        if (nombreBusqueda!=null){
+            if("BFS".equals(nombreBusqueda)){
+                String nombreEstacion = (String) estaciones.getSelectedItem();
+                Estacion estacionInicial = redApp.search(nombreEstacion);
+                redApp.busquedaBFS(estacionInicial, valorT);
+            }else{//nombreBusqueda == "DFS"
+            
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un tipo de búsqueda");
+        }
     }//GEN-LAST:event_revisarCoberturaActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -238,6 +285,7 @@ public class Cobertura extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton opcionBFS;
     private javax.swing.JRadioButton opcionDFS;
+    private javax.swing.ButtonGroup opcionesCobertura;
     private javax.swing.JButton revisarCobertura;
     private javax.swing.JButton volver;
     private javax.swing.JButton volver1;

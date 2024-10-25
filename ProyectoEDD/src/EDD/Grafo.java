@@ -170,5 +170,60 @@ public class Grafo {
             return "Grafo vacio";
         }
     }
+    
+    public void busquedaBFS(Estacion estacionInicial,int t){
+        //si la estacion inicial es nula, mostrar mensaje de error
+        if (estacionInicial == null){
+            JOptionPane.showMessageDialog(null, "La estación inicial no puede ser nula");
+            
+        }else{//sino, busca las estaciones adyacentes dentro del limite de T
+            //inicializamos una cadena para almacenar la cobertura de las estaciones
+            String cobertura = "Estación inicial: " + estacionInicial.getNombre() + "\n";
+            //creamos objetos de tipo cola y lista para tener un registro de las estaciones 
+            Cola cola = new Cola();
+            Cola distancias = new Cola();
+            
+            //lista para tener registro de las estaciones visitadas
+            Lista estacionesVisitadas = new Lista();
+            
+            cola.insert(estacionInicial);//insertamos estacion inicial en la cola
+            distancias.insert(0);//insertamos la distancia inicial 0 en la cola de distancias
+            estacionesVisitadas.insertFinale(estacionInicial);//estacion inicial visitada
+            
+            //mientras la cola no este vacia
+            while (!cola.isEmpty()){
+                Estacion estacionActual = (Estacion) cola.delete();
+                int distanciaActual = (int) distancias.delete();
+                
+                //si la distancia actual supera el limite de T
+                if (distanciaActual>t){
+                    continue;
+                }
+                
+                //agregamos info
+                cobertura += "Estacion: " + estacionActual.getNombre() + ", Distancia: " + distanciaActual + "\n";
+                
+                //obtenemos lista de estaciones adyacentes a la estacion actual
+                Lista adyacentesActuales = estacionActual.getAdyacentes();
+                //iteramos sobre cada estacion adyacente
+                for (int i = 0; i < adyacentesActuales.getSize(); i++) {
+                    //obtenemos la estacion adyacente actual
+                    Estacion adyacenteActual = (Estacion) adyacentesActuales.getValor(i);
+                    
+                    
+                    //si el adyacente en donde estoy no esta en la lista de estaciones visitadas  
+                    if (!estacionesVisitadas.search(adyacenteActual)){
+                        //añadimos a la cola y actualizamos la distancia
+                        cola.insert(adyacenteActual);
+                        distancias.insert(distanciaActual +1);
+                        //estacion adyacente ahora es una estacion visitada
+                        estacionesVisitadas.insertFinale(adyacenteActual);
+                    }
+                }
+            }
+            //mostramos la cobertura de estaciones alcanzadas
+            JOptionPane.showMessageDialog(null, "cobertura");
+        }
+    }
 }
     
