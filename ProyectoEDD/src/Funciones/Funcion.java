@@ -108,7 +108,7 @@ public class Funcion {
         JOptionPane.showMessageDialog(null, "Se estableció la conexión con la red :)");
     }
     public void agregarConexionesLinea(Lista linea){
-        for (int i = 0; i < linea.getSize(); i++) {
+        for (int i = 0; i < linea.getSize()-1; i++) {
             Estacion estacionActual = (Estacion) linea.getValor(i);
             Estacion estacionSiguiente = (Estacion) linea.getValor(i + 1);
         }
