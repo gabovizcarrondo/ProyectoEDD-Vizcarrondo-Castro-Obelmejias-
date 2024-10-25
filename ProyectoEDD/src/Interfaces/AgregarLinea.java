@@ -78,8 +78,8 @@ public class AgregarLinea extends javax.swing.JFrame {
         estacionesLinea = new javax.swing.JTextArea();
         volver = new javax.swing.JButton();
         cargarLinea = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        estacionLinea = new javax.swing.JComboBox<>();
+        estacionRed = new javax.swing.JComboBox<>();
         conexionConRed = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -161,19 +161,24 @@ public class AgregarLinea extends javax.swing.JFrame {
         });
         jPanel1.add(cargarLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
-        jComboBox1.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jComboBox1.setModel(modeloLineaNueva);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 180, -1));
+        estacionLinea.setBackground(new java.awt.Color(204, 204, 255));
+        estacionLinea.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        estacionLinea.setModel(modeloLineaNueva);
+        jPanel1.add(estacionLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 180, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(204, 204, 255));
-        jComboBox2.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jComboBox2.setModel(modeloRed);
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 180, -1));
+        estacionRed.setBackground(new java.awt.Color(204, 204, 255));
+        estacionRed.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        estacionRed.setModel(modeloRed);
+        jPanel1.add(estacionRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 180, -1));
 
         conexionConRed.setBackground(new java.awt.Color(204, 204, 255));
         conexionConRed.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         conexionConRed.setText("Conexión con la red");
+        conexionConRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conexionConRedActionPerformed(evt);
+            }
+        });
         jPanel1.add(conexionConRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -249,6 +254,13 @@ public class AgregarLinea extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_aggEstacionActionPerformed
 
+    private void conexionConRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conexionConRedActionPerformed
+        String nombreEstacionLinea = (String)estacionLinea.getSelectedItem();
+        String nombreEstacionRed = (String)estacionRed.getSelectedItem();
+        
+        func.agregarConexion(nombreEstacionLinea, nombreEstacionRed, conexion);
+    }//GEN-LAST:event_conexionConRedActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,11 +300,11 @@ public class AgregarLinea extends javax.swing.JFrame {
     private javax.swing.JButton aggEstacion;
     private javax.swing.JButton cargarLinea;
     private javax.swing.JButton conexionConRed;
+    private javax.swing.JComboBox<String> estacionLinea;
+    private javax.swing.JComboBox<String> estacionRed;
     private javax.swing.JTextArea estacionesLinea;
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JTextField inputEstacion;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
