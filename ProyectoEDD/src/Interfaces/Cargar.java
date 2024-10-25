@@ -52,6 +52,7 @@ public class Cargar extends javax.swing.JFrame {
         archivo = new javax.swing.JTextArea();
         ruta = new javax.swing.JTextField();
         inicioExit = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,6 +113,9 @@ public class Cargar extends javax.swing.JFrame {
             }
         });
         jPanel3.add(inicioExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 10, 50, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/document.png"))); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
@@ -235,6 +239,7 @@ public class Cargar extends javax.swing.JFrame {
     private javax.swing.JToggleButton cargarCargarRed;
     private javax.swing.JLabel cargarTitulo;
     private javax.swing.JToggleButton inicioExit;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
