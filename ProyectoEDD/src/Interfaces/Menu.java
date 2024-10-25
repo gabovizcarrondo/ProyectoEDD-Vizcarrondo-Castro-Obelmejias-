@@ -36,7 +36,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         inicioExit1 = new javax.swing.JToggleButton();
         imagenSucursal = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        sucursal = new javax.swing.JButton();
         imagenUpload = new javax.swing.JLabel();
         cargar = new javax.swing.JButton();
         establecerT = new javax.swing.JButton();
@@ -82,10 +82,10 @@ public class Menu extends javax.swing.JFrame {
         imagenSucursal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursal.png"))); // NOI18N
         jPanel1.add(imagenSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton1.setText("Sucursal");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        sucursal.setBackground(new java.awt.Color(204, 204, 255));
+        sucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        sucursal.setText("Sucursal");
+        jPanel1.add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         imagenUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cargar.png"))); // NOI18N
         jPanel1.add(imagenUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
@@ -225,11 +225,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel imagenUpload;
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }
