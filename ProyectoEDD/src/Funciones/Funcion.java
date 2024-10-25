@@ -33,7 +33,7 @@ public class Funcion {
              Lista estacionesConSucursal = new Lista();
              for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
                  Estacion estacionActual =(Estacion) grafo.getEstaciones().getValor(i);
-                 if(!estacionActual.isSucursal()){
+                 if(estacionActual.isSucursal()){
                      estacionesConSucursal.insertFinale(estacionActual.getNombre());
                  }
              }
@@ -44,11 +44,23 @@ public class Funcion {
     
     public void agregarSucursal(Grafo grafo, String nombreEstacion){
         if(grafo.search(nombreEstacion) != null){
+            //guardar la estacion e igualarla a la busqueda
             Estacion estacion = grafo.search(nombreEstacion);
             estacion.setSucursal(true);
             JOptionPane.showMessageDialog(null, "Sucursal agregada con exito en: " + estacion.getNombre());
         }else{
             JOptionPane.showMessageDialog(null, "La sucursal no se pudo agregar, ya que el nombre de la estacion no se encuentra en el grafo");
+        }
+    }
+    
+    public void eliminarSucursal(Grafo grafo, String nombreEstacion){
+        if(grafo.search(nombreEstacion) != null){
+            //guardar la estacion e igualarla a la busqueda
+            Estacion estacion = grafo.search(nombreEstacion);
+            estacion.setSucursal(false);
+            JOptionPane.showMessageDialog(null, "Sucursal eliminada en: " + estacion.getNombre());
+        }else{
+            JOptionPane.showMessageDialog(null, "La sucursal no se pudo eliminar, ya que el nombre de la estacion no se encuentra en el grafo");
         }
     }
 }

@@ -41,6 +41,7 @@ public class InicializarT extends javax.swing.JFrame {
         inputT = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         inicioExit1 = new javax.swing.JToggleButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,12 +57,12 @@ public class InicializarT extends javax.swing.JFrame {
                 inicializarActionPerformed(evt);
             }
         });
-        jPanel1.add(inicializar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 190, -1));
+        jPanel1.add(inicializar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 190, -1));
 
         jLabel1.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese el valor de T:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         inputT.setBackground(new java.awt.Color(204, 204, 255));
         inputT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -70,7 +71,7 @@ public class InicializarT extends javax.swing.JFrame {
                 inputTActionPerformed(evt);
             }
         });
-        jPanel1.add(inputT, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 190, -1));
+        jPanel1.add(inputT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Palatino", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,6 +87,9 @@ public class InicializarT extends javax.swing.JFrame {
             }
         });
         jPanel1.add(inicioExit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 10, 50, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/metro.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
@@ -162,6 +166,7 @@ public class InicializarT extends javax.swing.JFrame {
     private javax.swing.JTextField inputT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
