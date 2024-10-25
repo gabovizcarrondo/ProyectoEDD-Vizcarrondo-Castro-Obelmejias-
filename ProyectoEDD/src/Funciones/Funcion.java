@@ -63,4 +63,12 @@ public class Funcion {
             JOptionPane.showMessageDialog(null, "La sucursal no se pudo eliminar, ya que el nombre de la estacion no se encuentra en el grafo");
         }
     }
+    
+    public String mostrarEstaciones(Lista linea){
+        if(!linea.isEmpty()){
+        
+        }
+        return "La lista aún no tiene estaciones";
+        
+    }
 }
