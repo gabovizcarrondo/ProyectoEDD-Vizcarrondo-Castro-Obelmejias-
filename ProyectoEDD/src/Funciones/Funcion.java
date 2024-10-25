@@ -99,7 +99,9 @@ public class Funcion {
             conexion.insertFinale(nombreEstacionRed);
             conexion.insertFinale(nombreEstacionLinea);
         }else{
-            
+            conexion.destruir();
+            conexion.insertFinale(nombreEstacionRed);
+            conexion.insertFinale(nombreEstacionLinea);
         }
     }
 }
