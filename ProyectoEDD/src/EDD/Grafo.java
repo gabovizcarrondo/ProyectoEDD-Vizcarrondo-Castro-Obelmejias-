@@ -59,6 +59,16 @@ public class Grafo {
         }
     }
     
+    public void insertStation2(Estacion estacion){ 
+        if(this.search(estacion.getNombre()) == null){          
+            estacion.setNumVertice(this.estaciones.getSize());
+            this.estaciones.insertFinale(estacion);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La estacion ya existe.");
+        }
+    }
+    
     public void addConnection(String nombreEstacion1, String nombreEstacion2){
         if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
             Estacion estacionInicio = search(nombreEstacion1);
