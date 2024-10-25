@@ -36,7 +36,7 @@ public class Menu extends javax.swing.JFrame {
         imagenSucursal = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         imagenUpload = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        cargar = new javax.swing.JButton();
         establecerT = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -88,15 +88,15 @@ public class Menu extends javax.swing.JFrame {
         imagenUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cargar.png"))); // NOI18N
         jPanel1.add(imagenUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton2.setText("Cargar red");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cargar.setBackground(new java.awt.Color(204, 204, 255));
+        cargar.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cargar.setText("Cargar red");
+        cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cargarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         establecerT.setBackground(new java.awt.Color(204, 204, 255));
         establecerT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -158,9 +158,9 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cargarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -211,6 +211,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cargar;
     private javax.swing.JButton establecerT;
     private javax.swing.JLabel imagenGrafo;
     private javax.swing.JLabel imagenLinea;
@@ -221,7 +222,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

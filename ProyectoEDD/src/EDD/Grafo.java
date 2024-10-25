@@ -137,6 +137,10 @@ public class Grafo {
 }
     }
 
+    public void destruir (){
+       this.estaciones = new Lista();
+    }
+    
     @Override
     public String toString() {
         if(!this.isEmpty()){

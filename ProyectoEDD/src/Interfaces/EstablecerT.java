@@ -139,7 +139,7 @@ public class EstablecerT extends javax.swing.JFrame {
             
             //actualizar valor
             valorActualT.setText(String.valueOf(valorT));
-            
+            inputNuevaT.setText("");
       
         } else {
             JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
