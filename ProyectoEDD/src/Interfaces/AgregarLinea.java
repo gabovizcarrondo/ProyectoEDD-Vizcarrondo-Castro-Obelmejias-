@@ -230,7 +230,25 @@ public class AgregarLinea extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void cargarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarLineaActionPerformed
-        // TODO add your handling code here:
+        if (!linea.isEmpty()){
+            if (!conexion.isEmpty()){
+                func.agregarConexionesLinea(linea);
+                
+//                for (int i = 0; i < linea.getSize(); i++) {
+//                    Estacion estacion = (Estacion) linea.getValor(i);
+//                    
+//                    //para probar si funciona
+//                    System.out.println(estacion.toString());
+//                    System.out.println("");
+//                }
+                
+            }else{
+            JOptionPane.showMessageDialog(null, "Debes agregar una conexión entre la línea y la red para poder agregar una línea nueva");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Debes agregar estaciones a la línea para poder agregar una nueva línea.");
+        }
     }//GEN-LAST:event_cargarLineaActionPerformed
 
     private void aggEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggEstacionActionPerformed
