@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import static Interfaces.Cargar.redApp;
+
 /**
  *
  * @author samantha
@@ -155,11 +157,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioExitActionPerformed
 
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
-        // TODO add your handling code here:
+        redApp.destruir();
+        Cargar cargarRed = new Cargar();
+        this.dispose();
     }//GEN-LAST:event_cargarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

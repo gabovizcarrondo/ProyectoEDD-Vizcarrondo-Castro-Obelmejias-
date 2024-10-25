@@ -116,7 +116,7 @@ public class EstablecerT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed

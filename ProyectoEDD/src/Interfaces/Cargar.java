@@ -130,6 +130,8 @@ public class Cargar extends javax.swing.JFrame {
             //print para ver si esta funcionando esta funcion
             //System.out.println(redApp.toString());
         
+            JOptionPane.showMessageDialog(null, "Archivo cargado exitosamente");  
+            
             InicializarT inicializarT = new InicializarT();
             this.dispose();
             
@@ -222,7 +224,7 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExitActionPerformed
 
     

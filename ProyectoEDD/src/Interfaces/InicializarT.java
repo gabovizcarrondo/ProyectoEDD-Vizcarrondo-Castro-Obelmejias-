@@ -97,7 +97,7 @@ public class InicializarT extends javax.swing.JFrame {
     }//GEN-LAST:event_inputTActionPerformed
 
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
     private void inicializarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicializarActionPerformed
