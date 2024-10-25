@@ -127,10 +127,13 @@ public class Cargar extends javax.swing.JFrame {
             
             redApp.setEstaciones(func.getEstaciones());
         
-            //pedirle a fabi q haga el tostring
+            //print para ver si esta funcionando esta funcion
             //System.out.println(redApp.toString());
         
-            Menu menu = new Menu();
+            JOptionPane.showMessageDialog(null, "Archivo cargado exitosamente");  
+            
+            InicializarT inicializarT = new InicializarT();
+            this.dispose();
             
         }else{
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo");  
@@ -221,7 +224,7 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExitActionPerformed
 
     

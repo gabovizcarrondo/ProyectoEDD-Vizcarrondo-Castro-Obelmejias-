@@ -103,7 +103,7 @@ public class Grafo {
             }
     }
 }
-    public void getadjacent(String nombreEstacion){
+    public void getAdjacent(String nombreEstacion){
         if(this.search(nombreEstacion) != null){ 
            Estacion estacion = this.search(nombreEstacion);
             JOptionPane.showMessageDialog(null,estacion.printAdy());
@@ -137,6 +137,10 @@ public class Grafo {
 }
     }
 
+    public void destruir (){
+       this.estaciones = new Lista();
+    }
+    
     @Override
     public String toString() {
         if(!this.isEmpty()){
@@ -156,59 +160,5 @@ public class Grafo {
             return "Grafo vacio";
         }
     }
-    public void busquedaBFS(Estacion estacionInicial, int t) {
-        if (estacionInicial == null) {
-            JOptionPane.showMessageDialog(null, "La estación inicial no puede ser nula.");
-        }
-        
-        String recorrido = "Estación Inicial: " + estacionInicial.getNombre()+ "\n";
-        Cola cola = new Cola();
-        Cola distancias = new Cola();
-        Lista estacionesVisitadas = new Lista();
-        
-        cola.insert(estacionInicial);
-        distancias.insert(0);
-        estacionesVisitadas.insertFinale(estacionInicial);
-        
-        while (!cola.isEmpty()) {
-            Estacion estacionActual = (Estacion) cola.delete();
-            int distanciaActual = (int) distancias.delete();
-
-            // Verificar si ya hemos alcanzado la distancia máxima
-            if (distanciaActual > t) {
-                continue;
-            }
-
-            recorrido += "Estación: " + estacionActual.getNombre() + ", Distancia: " + distanciaActual + "\n";
-
-            // Revisar las conexiones peatonales (t = 0)
-            if (estacionActual.getPasoPeatonal() != null) {
-                Estacion peatonal = estacionActual.getPasoPeatonal();
-                if (!estacionesVisitadas.search(peatonal)) {
-                    cola.insert(peatonal);
-                    distancias.insert(distanciaActual); // No incrementamos la distancia
-                    estacionesVisitadas.insertFinale(peatonal);
-                }
-            }
-            
-             // Revisar las estaciones adyacentes
-            Lista adyacentesActual = estacionActual.getAdyacentes();
-            for (int i = 0; i < adyacentesActual.getSize(); i++) {
-                Estacion adyacenteActual = (Estacion) adyacentesActual.getValor(i);
-                if (!estacionesVisitadas.search(adyacenteActual)) {
-                    cola.insert(adyacenteActual);
-                    distancias.insert(distanciaActual + 1); // Aumentamos la distancia
-                    estacionesVisitadas.insertFinale(adyacenteActual);
-                }
-        }
-        }
-        JOptionPane.showMessageDialog(null, recorrido);
-    }
-
-                    
-                    
 }
- 
-
-
-
+    
