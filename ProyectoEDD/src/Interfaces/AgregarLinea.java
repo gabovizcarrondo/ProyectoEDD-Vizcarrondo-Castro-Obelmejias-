@@ -6,6 +6,7 @@ package Interfaces;
 
 import EDD.Estacion;
 import EDD.Lista;
+import Funciones.Funcion;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -16,6 +17,8 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     private Lista linea = new Lista();
     private Lista conexion = new Lista();
+    private Funcion func = new Funcion();
+    
     DefaultComboBoxModel modeloLineaNueva = new DefaultComboBoxModel();
     DefaultComboBoxModel modeloRed = new DefaultComboBoxModel();
     
@@ -27,6 +30,8 @@ public class AgregarLinea extends javax.swing.JFrame {
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        
+        estacionesLinea.setText(func.mostrarEstaciones(linea));
     }
 
     /**
@@ -191,6 +196,7 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         Menu menu = new Menu();
+        this.dispose();
     }//GEN-LAST:event_volverActionPerformed
 
     private void cargarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarLineaActionPerformed
@@ -206,6 +212,11 @@ public class AgregarLinea extends javax.swing.JFrame {
             Estacion estacion = new Estacion(nombre);
             //inserto el objeto a la lista linea
             linea.insertFinale(estacion);
+            
+            inputEstacion.setText("");//para que se vacie el input luego de que el usuario agregue la estacion
+            
+            //mostrar en el text area
+            estacionesLinea.setText(func.mostrarEstaciones(linea));
         }
     }//GEN-LAST:event_aggEstacionActionPerformed
 
