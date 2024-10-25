@@ -7,6 +7,7 @@ package Funciones;
 import EDD.Estacion;
 import EDD.Grafo;
 import EDD.Lista;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,15 +16,24 @@ import EDD.Lista;
 public class Funcion {
     public Lista estacionesSinSucursal (Grafo grafo ){
         if(!grafo.isEmpty()){
-            Lista estacionesinSucursal = new Lista();
+            Lista estacioneSinSucursal = new Lista();
             for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
                 Estacion estacionActual = (Estacion) grafo.getEstaciones().getValor(i);
                 if(!estacionActual.isSucursal()){
-                    estacionesinSucursal.insertFinale(estacionActual.getNombre());
+                    estacioneSinSucursal.insertFinale(estacionActual.getNombre());
                 }
             }
-            return estacionesinSucursal;
+            return estacioneSinSucursal;
         }
         return null;
+    }
+    public void agregarSucursal(Grafo grafo, String nombreEstacion){
+        if(grafo.search(nombreEstacion) != null){
+            Estacion estacion = grafo.search(nombreEstacion);
+            estacion.setSucursal(true);
+            JOptionPane.showMessageDialog(null, "Sucursal agregada con exito en: " + estacion.getNombre());
+        }else{
+            JOptionPane.showMessageDialog(null, "La sucursal no se pudo agregar, ya que el nombre de la estacion no se encuentra en el grafo");
+        }
     }
 }
