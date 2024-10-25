@@ -65,8 +65,15 @@ public class Funcion {
     }
     
     public String mostrarEstaciones(Lista linea){
+        //si la lista linea no está vacía entra en el if, sino retorna un mensaje
         if(!linea.isEmpty()){
-        
+            String estacionesStr = "";
+            for (int i = 0; i < linea.getSize(); i++) {
+                Estacion estacionActual = (Estacion) linea.getValor(i);
+                estacionesStr += estacionActual.getNombre() + "\n";
+            }
+            
+            return estacionesStr;
         }
         return "La lista aún no tiene estaciones";
         
