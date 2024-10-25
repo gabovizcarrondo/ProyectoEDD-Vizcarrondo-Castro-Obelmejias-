@@ -63,6 +63,42 @@ public class Estacion {
         this.sucursal = sucursal;
     }
     
+    public String printAdy(){
+        if (!this.adyacentes.isEmpty()) {
+            Nodo aux = this.adyacentes.getpFirst();
+            String adyacentesStr = "";
+            while (aux.getpNext() != null) {
+                Estacion estacionActual = (Estacion) aux.getDato();
+                adyacentesStr += estacionActual.getNombre() + " ---> ";
+
+                aux = aux.getpNext();
+
+            }
+            Estacion estacionActual = (Estacion) aux.getDato();
+            adyacentesStr += estacionActual.getNombre();
+            return adyacentesStr;
+            
+        }
+        
+        return "No tiene adyacentes.";
+    }
+
+    public String nombrePasoPeatonal(){
+        if(this.pasoPeatonal != null){
+            return pasoPeatonal.getNombre();
+        }else{
+            return "No hay paso peatonal";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + "\nNumero de Vertice: " + numVertice + "\nAdyacentes: " + numVertice + this.printAdy() + "\nPasoPeatonal: " + this.nombrePasoPeatonal() + "\nSucursal: " + sucursal + "\n";
+    }
+            
+            
+    
+    
     
     
     

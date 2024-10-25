@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import static Interfaces.Cargar.redApp;
+
 /**
  *
  * @author samantha
@@ -34,10 +36,10 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         inicioExit1 = new javax.swing.JToggleButton();
         imagenSucursal = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        sucursal = new javax.swing.JButton();
         imagenUpload = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cargar = new javax.swing.JButton();
+        establecerT = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -80,33 +82,33 @@ public class Menu extends javax.swing.JFrame {
         imagenSucursal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursal.png"))); // NOI18N
         jPanel1.add(imagenSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton1.setText("Sucursal");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        sucursal.setBackground(new java.awt.Color(204, 204, 255));
+        sucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        sucursal.setText("Sucursal");
+        jPanel1.add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         imagenUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cargar.png"))); // NOI18N
         jPanel1.add(imagenUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton2.setText("Cargar red");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cargar.setBackground(new java.awt.Color(204, 204, 255));
+        cargar.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cargar.setText("Cargar red");
+        cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cargarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton3.setText("Establecer T");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        establecerT.setBackground(new java.awt.Color(204, 204, 255));
+        establecerT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        establecerT.setText("Establecer T");
+        establecerT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                establecerTActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
+        jPanel1.add(establecerT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 255));
         jButton4.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -155,12 +157,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioExitActionPerformed
 
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
+        redApp.destruir();
+        Cargar cargarRed = new Cargar();
+        this.dispose();
+    }//GEN-LAST:event_cargarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -170,10 +174,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void establecerTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_establecerTActionPerformed
        EstablecerT establecerT = new EstablecerT ();
        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_establecerTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +215,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cargar;
+    private javax.swing.JButton establecerT;
     private javax.swing.JLabel imagenGrafo;
     private javax.swing.JLabel imagenLinea;
     private javax.swing.JLabel imagenRecorrido;
@@ -219,13 +225,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel imagenUpload;
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }

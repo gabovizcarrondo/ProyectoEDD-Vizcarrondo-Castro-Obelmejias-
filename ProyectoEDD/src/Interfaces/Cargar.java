@@ -5,7 +5,9 @@
 package Interfaces;
 
 
-//arreglar porq no esta funcionando
+
+import EDD.Grafo;
+import Funciones.FuncionCargar;
 import Interfaces.Menu;
 import java.io.File;
 import java.io.FileReader;
@@ -20,6 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Cargar extends javax.swing.JFrame {
 
+    public static Grafo redApp = new Grafo();
     public static int valorT;
     /**
      * Creates new form Cargar
@@ -86,7 +89,6 @@ public class Cargar extends javax.swing.JFrame {
         archivo.setBackground(new java.awt.Color(204, 204, 255));
         archivo.setColumns(20);
         archivo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        archivo.setForeground(new java.awt.Color(255, 255, 255));
         archivo.setRows(5);
         jScrollPane1.setViewportView(archivo);
 
@@ -119,7 +121,23 @@ public class Cargar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarCargarRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCargarRedActionPerformed
-        Menu menu = new Menu();
+        if (!archivo.getText().isEmpty()) {
+            FuncionCargar func = new FuncionCargar();
+            func.cargar(ruta.getText());
+            
+            redApp.setEstaciones(func.getEstaciones());
+        
+            //print para ver si esta funcionando esta funcion
+            //System.out.println(redApp.toString());
+        
+            JOptionPane.showMessageDialog(null, "Archivo cargado exitosamente");  
+            
+            InicializarT inicializarT = new InicializarT();
+            this.dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo");  
+        }
         
     }//GEN-LAST:event_cargarCargarRedActionPerformed
 
@@ -131,7 +149,7 @@ public class Cargar extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         
         //para filtrar archivo json :)
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)","(json)");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)","json");
         
         //asigno el filtro
         fc.setFileFilter(filtro);
@@ -145,17 +163,21 @@ public class Cargar extends javax.swing.JFrame {
             //para seleccionar el fichero
             File fichero = fc.getSelectedFile();
             
+            //lo pasa a un JTextField
             ruta.setText(fichero.getAbsolutePath());
             try (FileReader fr = new FileReader(fichero)) {
                 StringBuilder cadena = new StringBuilder();
                 int valor = fr.read(); 
                 
+                //leer contenido del json
                 while (valor!= -1){
                     cadena.append((char)valor);
                     valor = fr.read();
                 }
                 
+                //Mostrar el archivo en el JTextArea
                 archivo.setText(cadena.toString());
+                
             } catch(IOException e1){
                    e1.printStackTrace();
             }
@@ -202,7 +224,7 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExitActionPerformed
 
     
