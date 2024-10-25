@@ -5,6 +5,7 @@
 package Interfaces;
 
 import static Interfaces.Cargar.redApp;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -85,6 +86,11 @@ public class Menu extends javax.swing.JFrame {
         sucursal.setBackground(new java.awt.Color(204, 204, 255));
         sucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
         sucursal.setText("Sucursal");
+        sucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sucursalActionPerformed(evt);
+            }
+        });
         jPanel1.add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         imagenUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cargar.png"))); // NOI18N
@@ -178,6 +184,15 @@ public class Menu extends javax.swing.JFrame {
        EstablecerT establecerT = new EstablecerT ();
        this.dispose();
     }//GEN-LAST:event_establecerTActionPerformed
+
+    private void sucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sucursalActionPerformed
+        if (!redApp.isEmpty()){
+            Sucursal sucursales = new Sucursal();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "El grafo está vacío. Primero debe cargar un grafo");
+        }
+    }//GEN-LAST:event_sucursalActionPerformed
 
     /**
      * @param args the command line arguments

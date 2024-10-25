@@ -13,7 +13,7 @@ import EDD.Lista;
  * @author vizca
  */
 public class Funcion {
-    public Lista estacionessinSucursal (Grafo grafo ){
+    public Lista estacionesSinSucursal (Grafo grafo ){
         if(!grafo.isEmpty()){
             Lista estacionesinSucursal = new Lista();
             for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {

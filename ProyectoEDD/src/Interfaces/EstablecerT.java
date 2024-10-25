@@ -129,21 +129,25 @@ public class EstablecerT extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNuevaTActionPerformed
 
     private void modificarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarTActionPerformed
-        String valorTStr = inputNuevaT.getText();
-        Validacion help = new Validacion();
-        
-        //si pasa la validacion
-        if (help.convertirNumero(valorTStr)!= -1){
-            valorT = help.convertirNumero(valorTStr);
-            JOptionPane.showMessageDialog(null, "Se cambió el valor de T"); 
-            
-            //actualizar valor
-            valorActualT.setText(String.valueOf(valorT));
-            inputNuevaT.setText("");
-      
-        } else {
-            JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
-    }                     
+        if (!inputNuevaT.getText().isEmpty())  {
+            String valorTStr = inputNuevaT.getText();
+            Validacion help = new Validacion();
+
+            //si pasa la validacion
+            if (help.convertirNumero(valorTStr) != -1) {
+                valorT = help.convertirNumero(valorTStr);
+                JOptionPane.showMessageDialog(null, "Se cambió el valor de T");
+
+                //actualizar valor
+                valorActualT.setText(String.valueOf(valorT));
+                inputNuevaT.setText("");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
+            }
+        }else{
+        JOptionPane.showMessageDialog(null, "El componente está vacío");
+        }       
     }//GEN-LAST:event_modificarTActionPerformed
 
     /**
