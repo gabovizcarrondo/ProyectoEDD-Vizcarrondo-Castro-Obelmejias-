@@ -111,6 +111,9 @@ public class Funcion {
         for (int i = 0; i < linea.getSize()-1; i++) {
             Estacion estacionActual = (Estacion) linea.getValor(i);
             Estacion estacionSiguiente = (Estacion) linea.getValor(i + 1);
+            
+            estacionActual.getAdyacentes().insertFinale(estacionSiguiente);
+            estacionSiguiente.getAdyacentes().insertFinale(estacionActual);
         }
     }
 }
