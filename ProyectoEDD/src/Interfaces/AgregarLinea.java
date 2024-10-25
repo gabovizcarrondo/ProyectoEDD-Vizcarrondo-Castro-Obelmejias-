@@ -7,7 +7,9 @@ package Interfaces;
 import EDD.Estacion;
 import EDD.Lista;
 import Funciones.Funcion;
+import static Interfaces.Cargar.redApp;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +34,7 @@ public class AgregarLinea extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         estacionesLinea.setText(func.mostrarEstaciones(linea));
+        this.llenarComboRed();
     }
     
     private void llenarComboLinea(){
@@ -46,7 +49,14 @@ public class AgregarLinea extends javax.swing.JFrame {
     }
     
     private void llenarComboRed(){
-    
+        modeloRed.removeAllElements();
+        Lista estacionesRed = func.verEstaciones(redApp);
+        if (estacionesRed != null) {
+            for (int i = 0; i < estacionesRed.getSize(); i++) {
+                String nombreEstacion = (String) estacionesRed.getValor(i);
+                modeloRed.addElement(nombreEstacion);
+            }
+        }
     }
 
     /**
@@ -230,8 +240,12 @@ public class AgregarLinea extends javax.swing.JFrame {
             
             inputEstacion.setText("");//para que se vacie el input luego de que el usuario agregue la estacion
             
+            this.llenarComboLinea();
+            
             //mostrar en el text area
             estacionesLinea.setText(func.mostrarEstaciones(linea));
+        }else{
+            JOptionPane.showMessageDialog(null, "El componente está vacío");
         }
     }//GEN-LAST:event_aggEstacionActionPerformed
 
