@@ -4,6 +4,10 @@
  */
 package Interfaces;
 
+import Funciones.Validacion;
+import static Interfaces.Cargar.valorT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author samantha
@@ -18,7 +22,7 @@ public class EstablecerT extends javax.swing.JFrame {
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        //valorActualT.setText(String.valueOf(valorT));
+        valorActualT.setText(String.valueOf(valorT));
         
     }
 
@@ -36,6 +40,10 @@ public class EstablecerT extends javax.swing.JFrame {
         inicioExit1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         valorActualT = new javax.swing.JLabel();
+        volver = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        inputNuevaT = new javax.swing.JTextField();
+        modificarT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,6 +76,40 @@ public class EstablecerT extends javax.swing.JFrame {
         valorActualT.setText("T");
         jPanel1.add(valorActualT, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 
+        volver.setBackground(new java.awt.Color(204, 204, 255));
+        volver.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        volver.setText("<-- Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ingresar el nuevo valor de T:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
+        inputNuevaT.setBackground(new java.awt.Color(204, 204, 255));
+        inputNuevaT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        inputNuevaT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNuevaTActionPerformed(evt);
+            }
+        });
+        jPanel1.add(inputNuevaT, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 240, -1));
+
+        modificarT.setBackground(new java.awt.Color(204, 204, 255));
+        modificarT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        modificarT.setText("Modificar T");
+        modificarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarTActionPerformed(evt);
+            }
+        });
+        jPanel1.add(modificarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
         pack();
@@ -76,6 +118,33 @@ public class EstablecerT extends javax.swing.JFrame {
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inicioExit1ActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+       Menu menu = new Menu();
+       this.dispose();
+    }//GEN-LAST:event_volverActionPerformed
+
+    private void inputNuevaTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNuevaTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNuevaTActionPerformed
+
+    private void modificarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarTActionPerformed
+        String valorTStr = inputNuevaT.getText();
+        Validacion help = new Validacion();
+        
+        //si pasa la validacion
+        if (help.convertirNumero(valorTStr)!= -1){
+            valorT = help.convertirNumero(valorTStr);
+            JOptionPane.showMessageDialog(null, "Se cambió el valor de T"); 
+            
+            //actualizar valor
+            valorActualT.setText(String.valueOf(valorT));
+            
+      
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
+    }                     
+    }//GEN-LAST:event_modificarTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +183,13 @@ public class EstablecerT extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton inicioExit1;
+    private javax.swing.JTextField inputNuevaT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton modificarT;
     private javax.swing.JLabel valorActualT;
+    private javax.swing.JToggleButton volver;
     // End of variables declaration//GEN-END:variables
 }
