@@ -299,7 +299,7 @@ public class Grafo {
     public void sugerirNuevaSucursal(Lista estacionesNoCubiertas, Lista estacionesCubiertas, int rangoCobertura){
         Estacion mejorEstacion = null;
         //para tener un registro de la maxima cantidad de estaciones que se pueden cubrir con la nueva sucursal
-        int maxCoberturaAdiciional = 0;
+        int maxCoberturaAdicional = 0;
         
         //iterar sobre las estaciones NO cubiertas
         for (int i = 0; i < estacionesNoCubiertas.getSize(); i++) {
