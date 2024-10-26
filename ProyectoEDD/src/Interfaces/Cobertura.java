@@ -76,7 +76,7 @@ public class Cobertura extends javax.swing.JFrame {
         opcionBFS = new javax.swing.JRadioButton();
         revisarCobertura = new javax.swing.JButton();
         volver1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         volver.setBackground(new java.awt.Color(204, 204, 255));
         volver.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -158,9 +158,9 @@ public class Cobertura extends javax.swing.JFrame {
         });
         jPanel1.add(volver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 300, 150));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cobertura6.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
         jPanel1.getAccessibleContext().setAccessibleDescription("");
@@ -246,8 +246,8 @@ public class Cobertura extends javax.swing.JFrame {
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton opcionBFS;
     private javax.swing.JRadioButton opcionDFS;
     private javax.swing.ButtonGroup opcionesCobertura;
