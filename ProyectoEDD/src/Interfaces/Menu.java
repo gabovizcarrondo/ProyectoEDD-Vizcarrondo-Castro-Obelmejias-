@@ -173,8 +173,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarActionPerformed
 
     private void coberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturaActionPerformed
-        Cobertura cobertura = new Cobertura();
-        this.dispose();
+        if (redApp.tieneSucursales()) {
+            Cobertura cobertura = new Cobertura();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Para acceder a este botón debes colocar sucursales");
+        }
+        
     }//GEN-LAST:event_coberturaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
