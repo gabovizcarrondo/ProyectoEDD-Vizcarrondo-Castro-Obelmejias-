@@ -226,6 +226,59 @@ public class Grafo {
         }
     }
     
+    public void busquedaDFS (Estacion estacionInicial, int t){
+        //si la estacion inicial es nula, se muestra un mensaje de eror
+        if (estacionInicial == null){
+            JOptionPane.showMessageDialog(null, "La estación inicial no puede ser nula");
+            return;
+        }
+        
+        Lista visitadas = new Lista();
+        StringBuilder resultado = new StringBuilder();
+        
+        //agrega el nombre de la estacion inicial al resultado
+        resultado.append("Estación inicial: ").append(estacionInicial.getNombre()).append("\n");
+        
+        //iniciamos busqueda recursiva 
+        dfsRecursivo(estacionInicial,visitadas, 0, resultado, t);
+        //mensaje que indica que la busqueda finalizó
+        resultado.append("Cobertura DFS finalizada\n");
+        JOptionPane.showMessageDialog(null, resultado.toString());
+    }
+    //
+    public void dfsRecursivo (Estacion estacion, Lista visitadas, int distanciaActual, StringBuilder resultado, int t){
+        //marca la estacion actual como visitada
+        visitadas.insertFinale(estacion);
+        
+        resultado.append("Estación: ").append(estacion.getNombre()).append(", Distancia: ").append(distanciaActual).append("\n");
+        //si la distancia actual supera el limite de t, se detiene la busqueda
+        if (distanciaActual>=t){
+            return;
+        }
+        //comprueba si hay una conexion peatonal desde la estacion actual
+        if (estacion.getPasoPeatonal()!= null){
+            Estacion peatonal = estacion.getPasoPeatonal();
+            //verifica si la estacion peatonal ya ha sido visitada
+            if(!visitadas.search(peatonal)){
+                //recursividad 
+                dfsRecursivo(peatonal,visitadas,distanciaActual,resultado,t);
+            }
+        }
+        //obtenemos la lista de estaciones adyacentes 
+        Lista adyacentes = estacion.getAdyacentes();
+        //iteramos sobre cada estacion adyacente
+        for (int i = 0; i < adyacentes.getSize(); i++) {
+            Estacion adyacente = (Estacion) adyacentes.getValor(i);
+            //verificamos si ya ha sido visitada
+            if (!visitadas.search(adyacente)){
+                //recursividad
+                dfsRecursivo(adyacente, visitadas, distanciaActual + 1, resultado, t);
+            }
+        }
+    }
+    
+    
+    
     //funcion para ver hasta donde se puede cubrir una sucursal
     public void verificarCoberturaTotal(int rangoCobertura){
         //si esta vacio, mostramos un mensaje y salimos del metodo
