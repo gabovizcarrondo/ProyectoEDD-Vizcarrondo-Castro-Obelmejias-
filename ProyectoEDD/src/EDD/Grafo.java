@@ -386,10 +386,27 @@ public class Grafo {
         }
         
         if (mejorEstacion != null){
-            JOptionPane.showMessageDialog(null, "Sugerencia: Colocar una sucursal en la estación "  + mejorEstacion.getNombre() + " para cubrir" + maxCoberturaAdicional + " estaciones adicionales");
+            JOptionPane.showMessageDialog(null, "Sugerencia: Colocar una sucursal en la estación "  + mejorEstacion.getNombre() + " para cubrir " + maxCoberturaAdicional + " estaciones adicionales");
             
         }else{
             JOptionPane.showMessageDialog(null, "No se encontró una estación adecuada para aumentar la cobertura");
+        }
+    }
+    
+    public boolean tieneSucursales(){
+        if(this.estaciones.isEmpty()){
+            return false;
+        }else{
+            Nodo aux = this.estaciones.getpFirst();
+            while(aux!=null){
+                Estacion estacionActual = (Estacion) aux.getDato();
+                if (estacionActual.isSucursal()){
+                    return true;
+                }
+                aux = aux.getpNext();
+            }
+            
+            return false; 
         }
     }
 }
