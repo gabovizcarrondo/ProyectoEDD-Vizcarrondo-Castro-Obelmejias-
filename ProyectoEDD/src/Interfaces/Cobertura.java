@@ -182,12 +182,12 @@ public class Cobertura extends javax.swing.JFrame {
 
     private void revisarCoberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revisarCoberturaActionPerformed
         if (nombreBusqueda!=null){
+            String nombreEstacion = (String) estaciones.getSelectedItem();
+            Estacion estacionInicial = redApp.search(nombreEstacion);
             if("BFS".equals(nombreBusqueda)){
-                String nombreEstacion = (String) estaciones.getSelectedItem();
-                Estacion estacionInicial = redApp.search(nombreEstacion);
                 redApp.busquedaBFS(estacionInicial, valorT);
             }else{//nombreBusqueda == "DFS"
-            
+                redApp.busquedaDFS(estacionInicial, valorT);
             }
             
         }else{
