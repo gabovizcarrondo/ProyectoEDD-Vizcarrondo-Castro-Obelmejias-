@@ -266,7 +266,7 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, "Cobertura total alcanzada. Todas las estaciones están cubiertas");
         }else{
             JOptionPane.showMessageDialog(null, "Cobertura NO total. Hay estaciones que no están cubiertas");
-            //hacer funcion sugerir nueva sucursal OJOOOOOOOOOOO
+            sugerirNuevaSucursal(estacionesNoCubiertas, estacionesCubiertas, rangoCobertura);
         }
     }
     
@@ -293,6 +293,50 @@ public class Grafo {
         if (estacionActual.getPasoPeatonal() != null){
             Estacion peatonal = estacionActual.getPasoPeatonal();
             marcarCoberturaRecursiva(peatonal, estacionesCubiertas, distancia, rangoCobertura);
+        }
+    }
+    
+    public void sugerirNuevaSucursal(Lista estacionesNoCubiertas, Lista estacionesCubiertas, int rangoCobertura){
+        Estacion mejorEstacion = null;
+        //para tener un registro de la maxima cantidad de estaciones que se pueden cubrir con la nueva sucursal
+        int maxCoberturaAdiciional = 0;
+        
+        //iterar sobre las estaciones NO cubiertas
+        for (int i = 0; i < estacionesNoCubiertas.getSize(); i++) {
+            
+            //obtenemos la estacion no cubierta actual de la lista
+            Estacion estacionNoCubierta = (Estacion) estacionesNoCubiertas.getValor(i);
+            
+            //nueva lista para simular la cobertura de la estacion actual
+            Lista coberturaSimulada = new Lista();
+            //llamamos al metodo que simula la cobertura de la estacion no cubierta y almacena el resultado
+            marcarCoberturaDesdeSucursal (estacionNoCubierta, coberturaSimulada, rangoCobertura);
+            
+            //contar cuantas nuevas estaciones cubriria
+            int coberturaAdicional = 0;
+            for (int j = 0; j < coberturaSimulada.getSize(); j++) {
+                Estacion estacionCubiertaSimulada = (Estacion) coberturaSimulada.getValor(j);
+                
+                //verificamos si la estacion cubierta simulada ya esta en la lista de estaciones cubiertas
+                if (!estacionesCubiertas.search(estacionCubiertaSimulada)){
+                    coberturaAdicional++;//si no esta, incrementamos contador 
+                }
+                
+            }
+            //comparamos que cobertura es mejor
+            if (coberturaAdicional > maxCoberturaAdicional){
+                //si la cobertura adicional es mejor, actualizamos la mejor estacion con la estacion actual
+                mejorEstacion = estacionNoCubierta;
+                //actualizamos el maximo de cobertura adicional
+                maxCoberturaAdicional = coberturaAdicional;
+            }
+        }
+        
+        if (mejorEstacion != null){
+            JOptionPane.showMessageDialog(null, "Sugerencia: Colocar una sucursal en la estación "  + mejorEstacion.getNombre() + "para cubrir" + maxCoberturaAdicional + "estaciones adicionales");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encontró una estación adecuada para aumentar la cobertura");
         }
     }
 }
