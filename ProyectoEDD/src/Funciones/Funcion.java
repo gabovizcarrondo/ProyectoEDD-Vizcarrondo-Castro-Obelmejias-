@@ -116,4 +116,11 @@ public class Funcion {
             estacionSiguiente.getAdyacentes().insertFinale(estacionActual);
         }
     }
+    
+    public void agregarLinea(Grafo grafo, Lista linea){
+        for (int i = 0; i < linea.getSize(); i++) {
+            Estacion estacionActual = (Estacion) linea.getValor(i);
+            grafo.insertStation2(estacionActual);
+        }
+    }
 }
