@@ -7,6 +7,7 @@ package Interfaces;
 import EDD.Lista;
 import Funciones.Funcion;
 import static Interfaces.Cargar.redApp;
+import static Interfaces.Cargar.valorT;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -210,7 +211,7 @@ public class Sucursal extends javax.swing.JFrame {
         String nombreEstacion = (String)estacionesSinSucursal.getSelectedItem();
         
         func.agregarSucursal(redApp, nombreEstacion);
-        
+        redApp.verificarCoberturaTotal(valorT);
         this.llenarComboBoxSinSucursal();
         this.llenarComboBoxConSucursal();
     }//GEN-LAST:event_aggSucursalActionPerformed
