@@ -160,4 +160,10 @@ public class Lista {
         }
         return null;
     }
+    
+    public void destruir(){
+        this.pFirst = null;
+        this.size = 0;
+    }
+    
 }

@@ -29,9 +29,9 @@ public class Cargar extends javax.swing.JFrame {
      */
     public Cargar() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true); //ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
     }
 
     /**
@@ -52,6 +52,8 @@ public class Cargar extends javax.swing.JFrame {
         archivo = new javax.swing.JTextArea();
         ruta = new javax.swing.JTextField();
         inicioExit = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,6 +115,12 @@ public class Cargar extends javax.swing.JFrame {
         });
         jPanel3.add(inicioExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 10, 50, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/document.png"))); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/document.png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
@@ -127,10 +135,13 @@ public class Cargar extends javax.swing.JFrame {
             
             redApp.setEstaciones(func.getEstaciones());
         
-            //pedirle a fabi q haga el tostring
+            //print para ver si esta funcionando esta funcion
             //System.out.println(redApp.toString());
         
-            Menu menu = new Menu();
+            JOptionPane.showMessageDialog(null, "Archivo cargado exitosamente");  
+            
+            InicializarT inicializarT = new InicializarT();
+            this.dispose();
             
         }else{
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo");  
@@ -157,29 +168,29 @@ public class Cargar extends javax.swing.JFrame {
         //si el usuario acepta
         if(seleccion == JFileChooser.APPROVE_OPTION){
             
-            //para seleccionar el fichero
+            //damos la opción para seleccionar el fichero
             File fichero = fc.getSelectedFile();
             
-            //lo pasa a un JTextField
+            //lo pasamos a un JTextField
             ruta.setText(fichero.getAbsolutePath());
             try (FileReader fr = new FileReader(fichero)) {
                 StringBuilder cadena = new StringBuilder();
                 int valor = fr.read(); 
                 
-                //leer contenido del json
+                //leemos contenido del json
                 while (valor!= -1){
                     cadena.append((char)valor);
                     valor = fr.read();
                 }
                 
-                //Mostrar el archivo en el JTextArea
+                //Mostramos el archivo en el JTextArea
                 archivo.setText(cadena.toString());
                 
             } catch(IOException e1){
                    e1.printStackTrace();
             }
             
-            }else {
+            }else {//si el usuario no seleccionó ningún archivo mostramos mensaje de error
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningún archivo");
             }
         }
@@ -221,7 +232,7 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        // TODO add your handling code here:
+        dispose();//para que se cierre la ventana
     }//GEN-LAST:event_inicioExitActionPerformed
 
     
@@ -232,6 +243,8 @@ public class Cargar extends javax.swing.JFrame {
     private javax.swing.JToggleButton cargarCargarRed;
     private javax.swing.JLabel cargarTitulo;
     private javax.swing.JToggleButton inicioExit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

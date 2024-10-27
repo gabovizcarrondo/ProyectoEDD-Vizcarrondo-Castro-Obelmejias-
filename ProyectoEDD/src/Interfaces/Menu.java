@@ -4,6 +4,9 @@
  */
 package Interfaces;
 
+import static Interfaces.Cargar.redApp;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author samantha
@@ -15,9 +18,9 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true);//ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
     }
 
     /**
@@ -34,13 +37,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         inicioExit1 = new javax.swing.JToggleButton();
         imagenSucursal = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        sucursal = new javax.swing.JButton();
         imagenUpload = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        cargar = new javax.swing.JButton();
+        establecerT = new javax.swing.JButton();
+        cobertura = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        mostrarGrafo = new javax.swing.JButton();
         imagenT = new javax.swing.JLabel();
         imagenLinea = new javax.swing.JLabel();
         imagenGrafo = new javax.swing.JLabel();
@@ -80,43 +83,48 @@ public class Menu extends javax.swing.JFrame {
         imagenSucursal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/sucursal.png"))); // NOI18N
         jPanel1.add(imagenSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton1.setText("Sucursal");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        sucursal.setBackground(new java.awt.Color(204, 204, 255));
+        sucursal.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        sucursal.setText("Sucursal");
+        sucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sucursalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         imagenUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/cargar.png"))); // NOI18N
         jPanel1.add(imagenUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton2.setText("Cargar red");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cargar.setBackground(new java.awt.Color(204, 204, 255));
+        cargar.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cargar.setText("Cargar red");
+        cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cargarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton3.setText("Establecer T");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        establecerT.setBackground(new java.awt.Color(204, 204, 255));
+        establecerT.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        establecerT.setText("Establecer T");
+        establecerT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                establecerTActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
+        jPanel1.add(establecerT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton4.setText("Recorridos");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        cobertura.setBackground(new java.awt.Color(204, 204, 255));
+        cobertura.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        cobertura.setText("Ver cobertura");
+        cobertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                coberturaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+        jPanel1.add(cobertura, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 255));
         jButton5.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
@@ -128,10 +136,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 255));
-        jButton6.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton6.setText("Mostrar grafo");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        mostrarGrafo.setBackground(new java.awt.Color(204, 204, 255));
+        mostrarGrafo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        mostrarGrafo.setText("Mostrar grafo");
+        mostrarGrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarGrafoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mostrarGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         imagenT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/t2.png"))); // NOI18N
         jPanel1.add(imagenT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
@@ -143,7 +156,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(imagenGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
         imagenRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/recorrido.png"))); // NOI18N
-        jPanel1.add(imagenRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        jPanel1.add(imagenRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 360));
 
@@ -155,25 +168,52 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioExitActionPerformed
 
     private void inicioExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExit1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
+        redApp.destruir();
+        //abrimos ventana cargar
+        Cargar cargarRed = new Cargar();
+        //cerramos esta ventana
+        this.dispose();
+    }//GEN-LAST:event_cargarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void coberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturaActionPerformed
+        if (redApp.tieneSucursales()) {
+            Cobertura cobertura = new Cobertura();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Para acceder a este botón debes colocar sucursales");
+        }
+        
+    }//GEN-LAST:event_coberturaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        AgregarLinea agregarLinea = new AgregarLinea();
+        this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void establecerTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_establecerTActionPerformed
        EstablecerT establecerT = new EstablecerT ();
        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_establecerTActionPerformed
+
+    private void sucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sucursalActionPerformed
+        if (!redApp.isEmpty()){
+            Sucursal sucursales = new Sucursal();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "El grafo está vacío. Primero debe cargar un grafo");
+        }
+    }//GEN-LAST:event_sucursalActionPerformed
+
+    private void mostrarGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarGrafoActionPerformed
+        System.setProperty("org.graphstream.ui", "swing");
+        VisualizadorGrafo verGrafo = new VisualizadorGrafo(redApp);
+        verGrafo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mostrarGrafoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +251,9 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cargar;
+    private javax.swing.JButton cobertura;
+    private javax.swing.JButton establecerT;
     private javax.swing.JLabel imagenGrafo;
     private javax.swing.JLabel imagenLinea;
     private javax.swing.JLabel imagenRecorrido;
@@ -219,13 +262,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel imagenUpload;
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrarGrafo;
+    private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }
