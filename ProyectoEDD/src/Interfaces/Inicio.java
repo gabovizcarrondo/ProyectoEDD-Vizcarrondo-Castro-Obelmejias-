@@ -15,9 +15,9 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true); //ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
     }
 
     /**
@@ -77,7 +77,9 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioIniciarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioIniciarSistemaActionPerformed
+        //abrimos ventana cargar
         Cargar cargar = new Cargar();
+        //cerramos esta ventana
         this.dispose();
     }//GEN-LAST:event_inicioIniciarSistemaActionPerformed
 

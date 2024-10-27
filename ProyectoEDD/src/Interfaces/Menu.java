@@ -18,9 +18,9 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true);//ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
     }
 
     /**
@@ -43,7 +43,7 @@ public class Menu extends javax.swing.JFrame {
         establecerT = new javax.swing.JButton();
         cobertura = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        mostrarGrafo = new javax.swing.JButton();
         imagenT = new javax.swing.JLabel();
         imagenLinea = new javax.swing.JLabel();
         imagenGrafo = new javax.swing.JLabel();
@@ -136,10 +136,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 255));
-        jButton6.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
-        jButton6.setText("Mostrar grafo");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        mostrarGrafo.setBackground(new java.awt.Color(204, 204, 255));
+        mostrarGrafo.setFont(new java.awt.Font("Palatino", 0, 13)); // NOI18N
+        mostrarGrafo.setText("Mostrar grafo");
+        mostrarGrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarGrafoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mostrarGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         imagenT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/t2.png"))); // NOI18N
         jPanel1.add(imagenT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
@@ -168,7 +173,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         redApp.destruir();
+        //abrimos ventana cargar
         Cargar cargarRed = new Cargar();
+        //cerramos esta ventana
         this.dispose();
     }//GEN-LAST:event_cargarActionPerformed
 
@@ -200,6 +207,13 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El grafo está vacío. Primero debe cargar un grafo");
         }
     }//GEN-LAST:event_sucursalActionPerformed
+
+    private void mostrarGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarGrafoActionPerformed
+        System.setProperty("org.graphstream.ui", "swing");
+        VisualizadorGrafo verGrafo = new VisualizadorGrafo(redApp);
+        verGrafo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mostrarGrafoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,9 +263,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JToggleButton inicioExit;
     private javax.swing.JToggleButton inicioExit1;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrarGrafo;
     private javax.swing.JButton sucursal;
     // End of variables declaration//GEN-END:variables
 }

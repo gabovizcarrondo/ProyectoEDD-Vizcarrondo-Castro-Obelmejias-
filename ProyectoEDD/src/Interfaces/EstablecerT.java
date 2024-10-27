@@ -19,9 +19,9 @@ public class EstablecerT extends javax.swing.JFrame {
      */
     public EstablecerT() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true);//ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
         valorActualT.setText(String.valueOf(valorT));
         
     }
@@ -129,23 +129,27 @@ public class EstablecerT extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNuevaTActionPerformed
 
     private void modificarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarTActionPerformed
+        //si el input NO está vacío
         if (!inputNuevaT.getText().isEmpty())  {
+            //obtenemos el texto y lo almacenamos en valorTStr
             String valorTStr = inputNuevaT.getText();
             Validacion help = new Validacion();
 
             //si pasa la validacion
             if (help.convertirNumero(valorTStr) != -1) {
+                //le asignamos el numero que ingresó el usuario a ValorT
                 valorT = help.convertirNumero(valorTStr);
                 JOptionPane.showMessageDialog(null, "Se cambió el valor de T");
 
-                //actualizar valor
+                //actualizamos valor
                 valorActualT.setText(String.valueOf(valorT));
+                //limpiamos el cuadrito de input
                 inputNuevaT.setText("");
 
-            } else {
+            } else {//si no pasa la validación
                 JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
             }
-        }else{
+        }else{//Si el input está vacío
         JOptionPane.showMessageDialog(null, "El componente está vacío");
         }       
     }//GEN-LAST:event_modificarTActionPerformed
