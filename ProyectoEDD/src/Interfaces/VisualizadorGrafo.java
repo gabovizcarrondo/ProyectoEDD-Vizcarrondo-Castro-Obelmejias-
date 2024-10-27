@@ -54,6 +54,27 @@ public class VisualizadorGrafo extends JFrame{
             add(panelVista, BorderLayout.CENTER);  // Añadir el panel al JFrame
         }
     }
+    
+    private void construirGrafo(Graph grafoVisual) {
+        
+        for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
+            Estacion estacion = (Estacion) grafo.getEstaciones().getValor(i);
+            Node nodo = grafoVisual.addNode(estacion.getNombre());
+            nodo.setAttribute("ui.label", estacion.getNombre());
+
+            // Cambiar el color del nodo si tiene sucursal
+            String colorNodo = estacion.isSucursal() ? "yellow" : "gray";
+            nodo.setAttribute("ui.style", "fill-color: " + colorNodo + ";");
+        }
+
+        agregarRutas(grafoVisual);
+
+        // Ajustar los estilos generales del grafo
+        grafoVisual.setAttribute("ui.stylesheet", 
+            "node { text-size: 14px; size: 25px; text-alignment: under; }" +
+            "edge { size: 2px; }"
+        );
+    }
 
 
 }
