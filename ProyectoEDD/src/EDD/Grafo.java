@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author obelm
+ * @author obelm and samantha
  */
 public class Grafo {
     
