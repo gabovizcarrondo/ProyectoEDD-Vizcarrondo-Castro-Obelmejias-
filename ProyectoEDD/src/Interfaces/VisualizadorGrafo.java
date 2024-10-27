@@ -94,6 +94,18 @@ public class VisualizadorGrafo extends JFrame{
             agregarRutaPeatonal(grafoVisual, estacion);
         }
     }
+     private void agregarRutaPeatonal(Graph grafoVisual, Estacion estacion) {
+        Estacion peatonal = estacion.getPasoPeatonal();
+        if (peatonal != null) {
+            String idPeatonal = estacion.getNombre() + "-" + peatonal.getNombre() + "-peatonal";
+
+            if (grafoVisual.getEdge(idPeatonal) == null) {
+                Edge aristaPeatonal = grafoVisual.addEdge(idPeatonal, estacion.getNombre(), peatonal.getNombre(), true);
+                aristaPeatonal.setAttribute("ui.style", "stroke-mode: dots; stroke-color: blue;");
+            }
+        }
+    }
+     
 
 
 
