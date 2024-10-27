@@ -75,6 +75,26 @@ public class VisualizadorGrafo extends JFrame{
             "edge { size: 2px; }"
         );
     }
+     private void agregarRutas(Graph grafoVisual) {
+        for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
+            Estacion estacion = (Estacion) grafo.getEstaciones().getValor(i);
+            Lista adyacentes = estacion.getAdyacentes();
+
+            // Conexiones entre estaciones adyacentes
+            for (int j = 0; j < adyacentes.getSize(); j++) {
+                Estacion estacionAdyacente = (Estacion) adyacentes.getValor(j);
+                String idConexion = estacion.getNombre() + "-" + estacionAdyacente.getNombre();
+
+                if (grafoVisual.getEdge(idConexion) == null && grafoVisual.getEdge(estacionAdyacente.getNombre() + "-" + estacion.getNombre()) == null) {
+                    grafoVisual.addEdge(idConexion, estacion.getNombre(), estacionAdyacente.getNombre());
+                }
+            }
+
+            // Agregar rutas peatonales si existen
+            agregarRutaPeatonal(grafoVisual, estacion);
+        }
+    }
+
 
 
 }
