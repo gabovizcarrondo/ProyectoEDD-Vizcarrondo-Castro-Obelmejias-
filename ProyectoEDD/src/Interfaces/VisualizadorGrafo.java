@@ -105,7 +105,18 @@ public class VisualizadorGrafo extends JFrame{
             }
         }
     }
-     
+      private void agregarBotonRegresar() {
+        JButton botonRegresar = new JButton("Regresar");
+        botonRegresar.addActionListener(e -> {
+            cerrarVisor();
+            this.dispose();
+            // Simulación de abrir menú principal (suponiendo que ya exista una clase 'Menu')
+            Menu menuPrincipal = new Menu();
+            menuPrincipal.setVisible(true);
+        });
+        add(botonRegresar, BorderLayout.SOUTH);
+    }
+
 
 
 
