@@ -24,7 +24,7 @@ import org.graphstream.ui.view.Viewer;
  */
 import EDD.Grafo;
 public class VisualizadorGrafo extends JFrame{
-     private Grafo grafo;
+    private Grafo grafo;
     private Viewer visor;
     private ViewPanel panelVista;
 
@@ -115,6 +115,16 @@ public class VisualizadorGrafo extends JFrame{
             menuPrincipal.setVisible(true);
         });
         add(botonRegresar, BorderLayout.SOUTH);
+    }
+        private void cerrarVisor() {
+            if (visor != null) {
+                visor.disableAutoLayout();
+                visor.close();
+            }
+            if (panelVista != null) {
+                remove(panelVista);
+                panelVista = null;
+        }
     }
 
 
