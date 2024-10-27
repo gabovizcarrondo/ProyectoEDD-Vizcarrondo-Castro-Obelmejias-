@@ -29,9 +29,9 @@ public class Cargar extends javax.swing.JFrame {
      */
     public Cargar() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true); //ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
     }
 
     /**
@@ -168,29 +168,29 @@ public class Cargar extends javax.swing.JFrame {
         //si el usuario acepta
         if(seleccion == JFileChooser.APPROVE_OPTION){
             
-            //para seleccionar el fichero
+            //damos la opción para seleccionar el fichero
             File fichero = fc.getSelectedFile();
             
-            //lo pasa a un JTextField
+            //lo pasamos a un JTextField
             ruta.setText(fichero.getAbsolutePath());
             try (FileReader fr = new FileReader(fichero)) {
                 StringBuilder cadena = new StringBuilder();
                 int valor = fr.read(); 
                 
-                //leer contenido del json
+                //leemos contenido del json
                 while (valor!= -1){
                     cadena.append((char)valor);
                     valor = fr.read();
                 }
                 
-                //Mostrar el archivo en el JTextArea
+                //Mostramos el archivo en el JTextArea
                 archivo.setText(cadena.toString());
                 
             } catch(IOException e1){
                    e1.printStackTrace();
             }
             
-            }else {
+            }else {//si el usuario no seleccionó ningún archivo mostramos mensaje de error
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningún archivo");
             }
         }
@@ -232,7 +232,7 @@ public class Cargar extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarBuscarArchivoActionPerformed
 
     private void inicioExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioExitActionPerformed
-        dispose();
+        dispose();//para que se cierre la ventana
     }//GEN-LAST:event_inicioExitActionPerformed
 
     

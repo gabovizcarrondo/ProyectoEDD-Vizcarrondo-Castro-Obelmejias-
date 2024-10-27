@@ -27,9 +27,9 @@ public class Cobertura extends javax.swing.JFrame {
     
     public Cobertura() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true); //ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
         opcionesCobertura.add(opcionDFS);
         opcionesCobertura.add(opcionBFS);
         this.llenarComboBoxConSucursal();
@@ -45,7 +45,7 @@ public class Cobertura extends javax.swing.JFrame {
         //si la lista no esta vacia
         if (!nombresConSucursal.isEmpty()) {
 
-            //para llenar el combo box 
+            //llenamos el combo box 
             for (int i = 0; i < nombresConSucursal.getSize(); i++) {
 
                 //casteo de lo que guarda cada uno de los nodos en esta lista en la posicion i
