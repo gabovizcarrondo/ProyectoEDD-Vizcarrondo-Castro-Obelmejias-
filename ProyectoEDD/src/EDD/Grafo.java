@@ -262,6 +262,34 @@ public class Grafo {
         }
     }
     
+    /**
+ * Realiza una b&uacute;squeda en anchura (BFS) desde la estaci&oacute;n inicial para encontrar todas las estaciones
+ * que se encuentran dentro de una distancia m&aacute;xima de `t` estaciones.
+ * 
+ * @param estacionInicial La estaci&oacute;n desde la cual comienza la b&uacute;squeda. No debe ser nula.
+ * @param t La distancia m&cute;xima (n&uacute;mero de estaciones) a la que se buscar&aacute;n estaciones adyacentes.
+ * 
+ * Muestra un mensaje con la cobertura de estaciones alcanzadas dentro de la distancia `t`. La cobertura
+ * incluye el nombre de cada estaci&oacute;n alcanzada y la distancia a la estación inicial.
+ * 
+ * La búsqueda se lleva a cabo utilizando dos colas para:
+ * - Controlar la estaci&oacute;n en proceso (cola de estaciones).
+ * - Controlar la distancia de cada estación a la estaci&oacute;n inicial (cola de distancias).
+ * 
+ * El m&eacute;todo funciona de la siguiente manera:
+ * 1. Verifica que la estaci&oacute;n inicial no sea nula.
+ * 2. Inicializa la cobertura de estaciones como una cadena de texto.
+ * 3. Utiliza una lista `estacionesVisitadas` para evitar visitar estaciones repetidas.
+ * 4. Agrega la estaci&oacute;n inicial a la cola de estaciones y su distancia (0) a la cola de distancias.
+ * 5. Procesa cada estaci&oacute;n en la cola de estaciones hasta que esté vac&iacute;a:
+ *    - Si la distancia de una estaci&oacute;n es mayor a `t`, pasa a la siguiente.
+ *    - Si no, la estaci&oacute;n y su distancia se agregan al registro de cobertura.
+ *    - Se obtienen las estaciones adyacentes de la estación actual y se agregan a la cola si a&uacute;n no han sido visitadas.
+ * 
+ * Finalmente, muestra la cobertura de estaciones alcanzadas en un cuadro de di&aacute;logo.
+ *
+ */
+    
     public void busquedaDFS (Estacion estacionInicial, int t){
         //si la estacion inicial es nula, se muestra un mensaje de eror
         if (estacionInicial == null){
@@ -281,7 +309,19 @@ public class Grafo {
         resultado.append("Cobertura DFS finalizada\n");
         JOptionPane.showMessageDialog(null, resultado.toString());
     }
-    //
+    
+ /**
+ * M&eacute;todo auxiliar para realizar la b&uacute;squeda DFS de manera recursiva.
+ * 
+ * @param estacion La estaci&oacute;n en proceso.
+ * @param visitadas Lista de estaciones ya visitadas para evitar ciclos.
+ * @param distanciaActual La distancia actual desde la estaci&oacute;n inicial.
+ * @param resultado StringBuilder que guarda la cobertura de estaciones alcanzadas.
+ * @param t La distancia m&aacute;xima a la que se buscar&aacute;n estaciones.
+ * 
+ * Este m&eacute;todo verifica si la distancia actual ha alcanzado el l&iacute;mite `t`. Si la estaci&oacute;n tiene
+ * una conexi&oacute;n peatonal, explora primero esa conexi&oacute;n y luego explora todas las estaciones adyacentes.
+ */
     public void dfsRecursivo (Estacion estacion, Lista visitadas, int distanciaActual, StringBuilder resultado, int t){
         //marca la estacion actual como visitada
         visitadas.insertFinale(estacion);
