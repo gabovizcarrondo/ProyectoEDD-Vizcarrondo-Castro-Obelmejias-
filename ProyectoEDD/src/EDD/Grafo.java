@@ -206,7 +206,24 @@ public class Grafo {
             return "Grafo vacio";
         }
     }
-    
+ /**
+ * Realiza una b&uacute;squeda en anchura (BFS) desde la estaci&oacute;n inicial, encontrando todas las estaciones
+ * accesibles dentro de una distancia m&aacute;xima de `t` estaciones.
+ * 
+ * @param estacionInicial La estaci&oacute;n desde la cual comienza la b&uacute;squeda. No debe ser nula.
+ * @param t La distancia m&aacute;xima (en n&uacute;mero de estaciones) hasta la cual se buscar&aacute;n estaciones adyacentes.
+ * 
+ * Este m&eacute;todo utiliza una cola `cola` para realizar la b&uacute;squeda por niveles y una lista `estacionesVisitadas`
+ * para registrar las estaciones ya exploradas y evitar visitar una estación m&aacute;s de una vez. Tambi&eacute;n se utiliza
+ * una cola `distancias` para registrar la distancia desde la estación inicial hasta cada estaci&oacute;n.
+ * 
+ * Funcionamiento:
+ * 1. Verifica si la estacio&acute;n inicial es nula y muestra un mensaje de error si lo es.
+ * 2. Agrega la estaci&oacute;n inicial a la cola y establece su distancia en 0.
+ * 3. Mientras la cola no est&eacute vac&iacute;a, extrae una estaci&oacute;n y verifica si la distancia está dentro del l&iacute;mite.
+ * 4. Si la estacio&acute;n tiene adyacentes no visitados, los agrega a la cola con una distancia incrementada en 1.
+ * 5. Después de explorar todas las estaciones dentro del l&iacute;mite `t`, muestra la cobertura en un cuadro de di&aacute;logo.
+ */
     public void busquedaBFS(Estacion estacionInicial,int t){
         //si la estacion inicial es nula, mostrar mensaje de error
         if (estacionInicial == null){
@@ -353,9 +370,11 @@ public class Grafo {
         }
     }
     
-    
-    
-    //funcion para ver hasta donde se puede cubrir una sucursal
+    /** Verifica si las estaciones en el grafo est&aacute;n cubiertas dentro de un rango de cobertura espec&iacute;fico
+     * 
+     * @param rangoCobertura La distancia m&aacute;xima en estaciones que 
+     * define el &aacute;rea de una estaci&oacute;n con sucursal
+     */
     public void verificarCoberturaTotal(int rangoCobertura){
         //si esta vacio, mostramos un mensaje y salimos del metodo
         if(this.isEmpty()){
@@ -399,10 +418,25 @@ public class Grafo {
         }
     }
     
+    /** Marca las estaciones que se encuentran dentro del rango de cobertura especificado
+     * Las estaciones se consideran accesibles si se encuentran dentro del rango por conexi&oacute;n directa 
+     * o pasos peatonales
+     * 
+     * @param sucursal Estaci&oacute;n donde se empieza a contar la cobertura.
+     * @param estacionesCubiertas Lista de estaciones que ya han sido marcadas como cubiertas
+     * @param rangoCobertura N&uacute;mero m&aacute;ximo de estaciones que se pueden alcanzar
+     */
     public void marcarCoberturaDesdeSucursal (Estacion sucursal, Lista estacionesCubiertas,int rangoCobertura){
         marcarCoberturaRecursiva (sucursal, estacionesCubiertas, 0, rangoCobertura);
     }
     
+    /** M&eacute;todo auxiliar que marca estaciones como accesibles desde una estaci&oacute;n actual
+     * 
+     * @param estacionActual 
+     * @param estacionesCubiertas
+     * @param distancia La distancia actual desde la estaci&oacute;n actual. Incrementa por cada llamada recursiva
+     * @param rangoCobertura 
+     */
     public void marcarCoberturaRecursiva(Estacion estacionActual, Lista estacionesCubiertas,int distancia, int rangoCobertura){
         //verificamos si la distancia es mayor que el rango o si la estacion ya esta cubierta. Si es asi, nos salimos del metodo
         if (distancia > rangoCobertura || estacionesCubiertas.search(estacionActual)){
@@ -425,6 +459,13 @@ public class Grafo {
         }
     }
     
+    /** Sugiera la mejor ubicaci&oacute;n para una nueva sucursal
+     * con el fin de maximizar la cobertura de un rango determinado
+     * 
+     * @param estacionesNoCubiertas Lista que contiene las estaciones que no est&aacute;n cubiertas por ninguna sucursal
+     * @param estacionesCubiertas
+     * @param rangoCobertura 
+     */
     public void sugerirNuevaSucursal(Lista estacionesNoCubiertas, Lista estacionesCubiertas, int rangoCobertura){
         Estacion mejorEstacion = null;
         //para tener un registro de la maxima cantidad de estaciones que se pueden cubrir con la nueva sucursal
@@ -469,6 +510,12 @@ public class Grafo {
         }
     }
     
+    /** Verifica si el grafo contiene al menos una estaci&oacute;n marcada como sucursal 
+     * La b&uacute;squeda se detiene cuando encuentra la primera sucursal
+     * 
+     * @return 'true' si al menos una estaci&oacute;n esta marcada como sucursal
+     *         'false' si no existen sucursales, o si el grafo no contiene estaciones
+     */
     public boolean tieneSucursales(){
         if(this.estaciones.isEmpty()){
             return false;
@@ -486,4 +533,4 @@ public class Grafo {
         }
     }
 }
-    
+   
