@@ -22,24 +22,41 @@ import org.graphstream.ui.view.Viewer;
  *
  * @author gabo
  */
-import EDD.Grafo;
+
+/**
+ * Clase que representa un visualizador gr&aacute;fico para mostrar un grafo de estaciones de transporte.
+ */
 public class VisualizadorGrafo extends JFrame{
     private Grafo grafo;
     private Viewer visor;
     private ViewPanel panelVista;
 
+     /**
+     * Constructor que inicializa el visualizador con el grafo proporcionado.
+     *
+     * @param grafo el grafo que se va a visualizar.
+     */
+    
     public VisualizadorGrafo(Grafo grafo) {
         this.grafo = grafo;
         configurarInterfaz();
         inicializarVisor();
         agregarBotonRegresar();
     }
+    /**
+     * Configura la interfaz gr&aacute;fica del visualizador.
+     */
    private void configurarInterfaz() {
         setTitle("Mapa de Estaciones");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
     }
+   
+   /**
+     * Inicializa el visor del grafo y lo muestra en la interfaz.
+     */
+   
     private void inicializarVisor() {
         Graph grafoVisual = new SingleGraph("Estaciones");
         construirGrafo(grafoVisual);
@@ -54,6 +71,12 @@ public class VisualizadorGrafo extends JFrame{
             add(panelVista, BorderLayout.CENTER);  // Añadir el panel al JFrame
         }
     }
+    
+    /**
+     * Construye el grafo visual a partir de las estaciones en el grafo.
+     *
+     * @param grafoVisual el grafo visual que se va a construir.
+     */
     
     private void construirGrafo(Graph grafoVisual) {
         
@@ -75,6 +98,12 @@ public class VisualizadorGrafo extends JFrame{
             "edge { size: 2px; }"
         );
     }
+   
+    /**
+     * Agrega las rutas entre las estaciones en el grafo visual.
+     *
+     * @param grafoVisual el grafo visual al que se agregar&aacute;n las rutas.
+     */
      private void agregarRutas(Graph grafoVisual) {
         for (int i = 0; i < grafo.getEstaciones().getSize(); i++) {
             Estacion estacion = (Estacion) grafo.getEstaciones().getValor(i);
@@ -94,6 +123,14 @@ public class VisualizadorGrafo extends JFrame{
             agregarRutaPeatonal(grafoVisual, estacion);
         }
     }
+    
+     /**
+     * Agrega una ruta peatonal entre la estación y su estación adyacente si existe.
+     *
+     * @param grafoVisual el grafo visual al que se agregar&aacute;n las rutas peatonales.
+     * @param estacion la estaci&oacute;n que puede tener una conexi&oacute;n peatonal.
+     */
+     
      private void agregarRutaPeatonal(Graph grafoVisual, Estacion estacion) {
         Estacion peatonal = estacion.getPasoPeatonal();
         if (peatonal != null) {
@@ -105,6 +142,9 @@ public class VisualizadorGrafo extends JFrame{
             }
         }
     }
+      /**
+     * Agrega un bot&oacute;n "Regresar" a la interfaz que permite cerrar el visor y volver al men&uacute principal.
+     */
       private void agregarBotonRegresar() {
         JButton botonRegresar = new JButton("Regresar");
         botonRegresar.addActionListener(e -> {
@@ -116,6 +156,9 @@ public class VisualizadorGrafo extends JFrame{
         });
         add(botonRegresar, BorderLayout.SOUTH);
     }
+      /**
+     * Cierra el visor y elimina el panel de visualizaci&oacute;n de la interfaz.
+     */
         private void cerrarVisor() {
             if (visor != null) {
                 visor.disableAutoLayout();
