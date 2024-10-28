@@ -13,25 +13,53 @@ import java.io.FileReader;
 import java.io.IOException;
 /**
  *
- * @author samantha and gabo
+ * @author gabo
  */
+
+/**
+ * Clase que gestiona la carga de estaciones y conexiones desde un archivo JSON.
+ * Permite crear estaciones y establecer conexiones entre ellas, tanto adyacentes
+ * como conexiones peatonales.
+ */
+
 public class FuncionCargar {
     
     private Lista estaciones;
-
+ 
+    /**
+     * Constructor de la clase, inicializa la lista de estaciones.
+     */
+    
     public FuncionCargar(){
         this.estaciones = new Lista();
     }
     
+    /**
+     * Obtiene la lista de estaciones cargadas.
+     * 
+     * @return Lista de estaciones.
+     */
+    
     public Lista getEstaciones(){
         return estaciones;
     }
+     /**
+     * Establece la lista de estaciones.
+     * 
+     * @param estaciones la lista de estaciones a establecer.
+     */
+    
      public void setEstaciones(Lista estaciones){
         this.estaciones = estaciones; 
     }
    
      
-    //Función que procesa el archivo JSON
+     /**
+     * Carga el archivo JSON especificado, procesando las estaciones y sus conexiones.
+     * 
+     * @param rutaArchivo la ruta al archivo JSON que contiene los datos de estaciones y redes.
+     */
+     
     public void cargar(String rutaArchivo){
      try {
             // Leer el archivo JSON usando Gson
@@ -66,7 +94,13 @@ public class FuncionCargar {
         }
     }
 
-     // Método auxiliar para obtener las claves de un JsonObject como ListaSimple
+     /**
+     * Obtiene las claves de un JsonObject y las devuelve como una lista de nombres de redes o estaciones.
+     * 
+     * @param jsonObject el objeto JSON del que se obtendrán las claves.
+     * @return Lista de claves del JsonObject.
+     */
+    
     private Lista obtenerClavesDeJsonObject(JsonObject jsonObject) {
         Lista listaClaves = new Lista();
         for (String key : jsonObject.keySet()) {
@@ -74,7 +108,12 @@ public class FuncionCargar {
         }
         return listaClaves;
     }
-// Método auxiliar para procesar las líneas y estaciones
+    
+/**
+     * Procesa las estaciones y sus conexiones a partir de un JsonObject que representa l&iacute;neas.
+     * 
+     * @param lineasObject el objeto JSON que contiene las líneas de estaciones.
+     */
     private void procesarEstaciones(JsonObject lineasObject) {
         // Obtener las claves de las líneas
         Lista nombresLineas = obtenerClavesDeJsonObject(lineasObject);
@@ -132,7 +171,13 @@ public class FuncionCargar {
         }
     }
 
-    // Método auxiliar para obtener una estación existente o crear una nueva
+       /**
+     * Obtiene una estaci&oacute;n de la lista por su nombre, o la crea si no existe.
+     * 
+     * @param nombreEstacion el nombre de la estaci&oacute;n a obtener o crear.
+     * @return La estaci&oacute;n existente o una nueva si no se encuentra en la lista.
+     */
+    
    private Estacion obtenerEstacion(String nombreEstacion) {
         // Buscar si la estación ya fue creada en la lista de estaciones
         for (int i = 0; i < estaciones.getSize(); i++) {
