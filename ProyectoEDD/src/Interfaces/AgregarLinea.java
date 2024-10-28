@@ -29,19 +29,25 @@ public class AgregarLinea extends javax.swing.JFrame {
      */
     public AgregarLinea() {
         initComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setVisible(true);//ventana visible para el usuario
+        this.setResizable(false);//para que no se mueva su tamaño
+        this.setLocationRelativeTo(null);//centra la ventana en la pantalla
         
+        //muestra estaciones de la linea
         estacionesLinea.setText(func.mostrarEstaciones(linea));
         this.llenarComboRed();
     }
     
     private void llenarComboLinea(){
+        //elimina todo lo que haya en el comboBox
         modeloLineaNueva.removeAllElements();
+        //si la linea NO está vacía
         if(!linea.isEmpty()){
+            //iteramos las estaciones de la linea
             for (int i = 0; i < linea.getSize(); i++) {
+                //obtenemos el nombre de la estacion
                 Estacion estacion = (Estacion) linea.getValor(i);
+                //agregamos el nombre al comboBox
                 modeloLineaNueva.addElement(estacion.getNombre());
                 
             }
@@ -49,11 +55,16 @@ public class AgregarLinea extends javax.swing.JFrame {
     }
     
     private void llenarComboRed(){
+        //elimina todo lo que haya en el comboBox
         modeloRed.removeAllElements();
+        //obtenemos la lista de estaciones de la red
         Lista estacionesRed = func.verEstaciones(redApp);
+        //si la lista no es nula entra en el if
         if (estacionesRed != null) {
+            //iteramos las estaciones 
             for (int i = 0; i < estacionesRed.getSize(); i++) {
                 String nombreEstacion = (String) estacionesRed.getValor(i);
+                //agregamos el nombre de la estación al comboBox
                 modeloRed.addElement(nombreEstacion);
             }
         }

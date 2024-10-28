@@ -105,21 +105,27 @@ public class InicializarT extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioExit1ActionPerformed
 
     private void inicializarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicializarActionPerformed
+        //si el input NO está vacío entra en el if
         if (!inputT.getText().isEmpty()) {
+            //obtenemos el texto del input y lo asignamos a la variable ValorTStr
             String valorTStr = inputT.getText();
             Validacion help = new Validacion();
 
             //si pasa la validacion
             if (help.convertirNumero(valorTStr) != -1) {
+                //el número válido lo almacenamos en la variable valorT
                 valorT = help.convertirNumero(valorTStr);
+                //mostramos mensaje al usuario
                 JOptionPane.showMessageDialog(null, "Se agregó el valor a T");
+                //mostramos la ventana menu
                 Menu menu = new Menu();
+                //cerramos esta ventana 
                 this.dispose();
 
-            } else {
+            } else {//si no pasa la validación
                 JOptionPane.showMessageDialog(null, "Solo se admiten enteros positivos para T");
     }//GEN-LAST:event_inicializarActionPerformed
-        } else {
+        } else {//si el input está vacío mostramos mensaje
             JOptionPane.showMessageDialog(null, "El componente está vacío. No hay valor de T");
 
         }

@@ -8,29 +8,40 @@ import EDD.Estacion;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Esta clase define un Grafo en el que los nodos son estaciones y las aristas son las conexiones.
  * @author obelm and samantha
  */
 public class Grafo {
+    
     
     private Lista estaciones;
 
     public Grafo() {
         this.estaciones = new Lista();
     }
-
+//Getters y setters
     public Lista getEstaciones() {
         return estaciones;
     }
-
+/**
+ * Verifica si el
+ * @param estaciones 
+ */
     public void setEstaciones(Lista estaciones) {
         this.estaciones = estaciones;
     }
-    
+    /**
+     * Verifica si el grafo es vac&iacute;o
+     * @return True si el grafo no tiene estaciones, False en caso contrario
+     */
     public boolean isEmpty(){
         return this.estaciones.isEmpty();
     }
-    
+    /**
+     * Nusca una estaci&oacute;n por su nombre
+     * @param nombreEstacion Nombre de la estaci&oacute;n a buscar
+     * @return La estaci&oacute;n encontrada o null si no existe
+     */
     public Estacion search(String nombreEstacion){
         if(!this.isEmpty()){
             Nodo aux = this.estaciones.getpFirst();
@@ -47,7 +58,10 @@ public class Grafo {
         }
         return null;
     }
-    
+    /**
+     * Agrega una estaci&oacute;n al grafo
+     * @param nombreEstacion Nombre nuevo 
+     */
     public void insertStation(String nombreEstacion){ //cuando necesito agregar una estacion,agrego el nombre de la estacion
         if(this.search(nombreEstacion) == null){ //la estacion puede llegar a existir o no, por eso debo hacer "search", para comprobar
             Estacion estacion = new Estacion(nombreEstacion);//en caso de que la estacion no exista, agrego otra
@@ -68,7 +82,11 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, "La estacion ya existe.");
         }
     }
-    
+    /**
+     * Agrega una conexi&oacute;n entre dos estaciones si ambas existen
+     * @param nombreEstacion1 Nombre de la primera
+     * @param nombreEstacion2 Nobre de la segunda
+     */
     public void addConnection(String nombreEstacion1, String nombreEstacion2){
         if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
             Estacion estacionInicio = search(nombreEstacion1);
@@ -89,7 +107,11 @@ public class Grafo {
         
     }
     }
-    
+    /**
+     * Elimina la conexi&oacute;n entre dos estaciones en caso de que exista
+     * @param nombreEstacion1 Nombre de la primera
+     * @param nombreEstacion2 Nombre de la segunda
+     */
     public void deleteConnection(String nombreEstacion1, String nombreEstacion2){
         if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
             Estacion estacionInicio = search(nombreEstacion1);
@@ -113,6 +135,10 @@ public class Grafo {
             }
     }
 }
+    /**
+     * Imprime las estaciones adyacentes a una en espec&iacute;co
+     * @param nombreEstacion Nombre de la estaci&oacute;n
+     */
     public void getAdjacent(String nombreEstacion){
         if(this.search(nombreEstacion) != null){ 
            Estacion estacion = this.search(nombreEstacion);
@@ -121,7 +147,12 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, "La estacion ya existe.");
         }
     }
-    
+    /**
+     * Verifica si dos estaciones est&aacute;n conectadas directamente
+     * @param nombreEstacion1 Nombre de la primera estaci&oacute;n
+     * @param nombreEstacion2 Nombre de la segunda estaci&oacute;n
+     * @return True si est&aacute;n conectadas, False en caso contrario
+     */
     public boolean connected(String nombreEstacion1, String nombreEstacion2){
         if(this.search(nombreEstacion1) != null && this.search(nombreEstacion2) != null){
             Estacion estacionInicio = search(nombreEstacion1);
@@ -146,25 +177,30 @@ public class Grafo {
             return false;
 }
     }
-
+/**
+ * Elimina todas las estacines y conexiones del grafo
+ */
     public void destruir (){
        this.estaciones = new Lista();
     }
-    
+    /**
+     * Se realiza para representar en formato de cadena al grafo
+     * @return Cadena 
+     */
     @Override
     public String toString() {
-        if(!this.isEmpty()){
+        if(!this.isEmpty()){ //comprobar si es vacio
         String estacionesStr = "";
         Nodo aux = this.estaciones.getpFirst();
-        while(aux.getpNext() != null){
-            Estacion estacionActual = (Estacion)aux.getDato();
+        while(aux.getpNext() != null){ //si el grafo no es vacio
+            Estacion estacionActual = (Estacion)aux.getDato(); //se obtiene la lista de estaciones adyacentes a la actual
             estacionesStr += estacionActual.getNombre() + " ---> " + estacionActual.printAdy() + "\n"; 
             aux = aux.getpNext();
         }
          Estacion estacionActual = (Estacion) aux.getDato();
             estacionesStr += estacionActual.getNombre() + " ---> " + estacionActual.printAdy();
 
-        return estacionesStr;
+        return estacionesStr; //contiene la representacion textua completa del grafo
         
         }else{
             return "Grafo vacio";
